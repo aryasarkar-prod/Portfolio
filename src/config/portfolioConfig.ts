@@ -15,7 +15,7 @@ export const portfolioConfig = {
   ],
   bio: "Passionate full-stack developer with a love for crafting elegant, performant web applications. I turn complex problems into simple, beautiful, and intuitive solutions.",
   location: "Kolkata, India",
-  profilePicture: "/logo1.jpg", // Place your photo in /public/profile.jpg
+  profilePicture: "https://scontent-ccu2-1.xx.fbcdn.net/v/t39.30808-6/420099042_3525318994464150_5961493800280190180_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=a5f93a&_nc_ohc=Z7VDnI-mpBsQ7kNvwFT0iXd&_nc_oc=Ado5__bDPPIjSosjnDYbT2Pz5UAbgsfURrhLvhrkgvGdA3ROaPY_Vw1ulxIU27sVRGY&_nc_zt=23&_nc_ht=scontent-ccu2-1.xx&_nc_gid=AS10Gm5oN71XXUOHsUrr7w&_nc_ss=7b2a8&oh=00_Af4QdzM5TYDslEHOtQDJHuuNYN89O1AXAN0nYT56tTybYQ&oe=6A18F595", // Place your photo in /public/profile.jpg
   resumeUrl: "/resume.pdf",       // Place your resume in /public/resume.pdf
   availableForWork: true,
 
