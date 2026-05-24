@@ -25,7 +25,7 @@ export const portfolioConfig = {
   availableForWork: true,
 
   // ── Contact & Social ──────────────────────────────────────
-  email: "aryasarkar@example.com",
+  email: "aryasarkar60@gmail.com",
   social: {
     github: "https://github.com/aryasarkar-prod",
     linkedin: "https://linkedin.com/in/aryasarkar",
@@ -55,15 +55,15 @@ export const portfolioConfig = {
   education: [
     {
       id: 1,
-      degree: "B.Tech in Computer Science & Engineering",
-      institution: "Jadavpur University",
+      degree: "B.Tech in Mechanical Engineering",
+      institution: "Academy of Technology,Hooghly,Adispatagram",
       location: "Kolkata, India",
-      startYear: "2019",
-      endYear: "2023",
-      grade: "CGPA: 8.9 / 10",
+      startYear: "2018",
+      endYear: "2022",
+      grade: "SGPA: 8.95/ 10",
       description:
         "Specialized in software engineering, data structures, algorithms, and distributed systems. Active member of the coding club.",
-      logo: "/logos/jadavpur.png",
+      logo: "/logo1.jpg",
       highlights: ["Dean's List", "Best Final Year Project Award"],
     },
     {
