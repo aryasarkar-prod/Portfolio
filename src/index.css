@@ -14,40 +14,40 @@
     scroll-padding-top: 4rem;
   }
 
+  /* ── Dark mode (default) ── */
   body {
     @apply bg-gray-950 text-white;
     font-family: 'Inter', system-ui, sans-serif;
     overflow-x: hidden;
   }
 
-  /* Custom scrollbar */
-  ::-webkit-scrollbar {
-    width: 6px;
+  /* ── Light mode ── */
+  html.light body {
+    @apply bg-slate-50 text-gray-900;
   }
-  ::-webkit-scrollbar-track {
-    @apply bg-gray-950;
-  }
-  ::-webkit-scrollbar-thumb {
-    @apply bg-blue-700/50 rounded-full;
-  }
-  ::-webkit-scrollbar-thumb:hover {
-    @apply bg-blue-600;
-  }
+
+  /* Scrollbar — dark */
+  ::-webkit-scrollbar { width: 6px; }
+  ::-webkit-scrollbar-track { @apply bg-gray-950; }
+  ::-webkit-scrollbar-thumb { @apply bg-blue-700/50 rounded-full; }
+  ::-webkit-scrollbar-thumb:hover { @apply bg-blue-600; }
+
+  /* Scrollbar — light */
+  html.light ::-webkit-scrollbar-track { @apply bg-slate-200; }
+  html.light ::-webkit-scrollbar-thumb { @apply bg-blue-400/60 rounded-full; }
 
   /* Selection */
   ::selection {
-    background-color: rgba(59, 130, 246, 0.3);
-    color: white;
+    background-color: rgba(59, 130, 246, 0.25);
+    color: inherit;
   }
 }
 
 @layer utilities {
-  .bg-white\/3 {
-    background-color: rgba(255, 255, 255, 0.03);
-  }
-  .border-white\/8 {
-    border-color: rgba(255, 255, 255, 0.08);
-  }
+  /* tiny opacity bg helpers used inline */
+  .bg-white-3 { background-color: rgba(255,255,255,0.03); }
+  .border-white-8 { border-color: rgba(255,255,255,0.08); }
+
   .line-clamp-1 {
     overflow: hidden;
     display: -webkit-box;
@@ -61,22 +61,8 @@
     -webkit-line-clamp: 3;
   }
 
-  /* Glassmorphism utility */
-  .glass {
-    @apply backdrop-blur-md bg-white/5 border border-white/10;
-  }
-
-  /* Gradient text */
+  /* gradient text */
   .gradient-text {
-    @apply bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent;
+    @apply bg-gradient-to-r from-blue-500 to-purple-500 bg-clip-text text-transparent;
   }
-}
-
-/* Light mode overrides */
-.light body {
-  @apply bg-gray-50 text-gray-900;
-}
-
-.light ::-webkit-scrollbar-track {
-  @apply bg-gray-100;
 }

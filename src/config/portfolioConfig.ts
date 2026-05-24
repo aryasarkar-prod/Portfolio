@@ -15,7 +15,12 @@ export const portfolioConfig = {
   ],
   bio: "Passionate full-stack developer with a love for crafting elegant, performant web applications. I turn complex problems into simple, beautiful, and intuitive solutions.",
   location: "Kolkata, India",
-  profilePicture: "/profile.jpg", // Place your photo in /public/profile.jpg
+  // Add as many photos as you want — they will cycle automatically in the Hero
+  profilePictures: [
+    "/profile1.jpg",
+    "/profile2.jpg",
+    "/profile3.jpg",
+  ],
   resumeUrl: "/resume.pdf",       // Place your resume in /public/resume.pdf
   availableForWork: true,
 

@@ -1,46 +1,87 @@
-import React from 'react';
-import { motion } from 'framer-motion';
+import React, { useEffect, useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 import { TypeAnimation } from 'react-type-animation';
 import { portfolioConfig } from '../../config/portfolioConfig';
 import { FiGithub, FiLinkedin, FiMail, FiArrowDown, FiDownload } from 'react-icons/fi';
 
+/* ─── tiny orbit dot ─── */
+const OrbitDot: React.FC<{
+  size: number;
+  color: string;
+  radius: number;
+  duration: number;
+  delay?: number;
+  reverse?: boolean;
+}> = ({ size, color, radius, duration, delay = 0, reverse = false }) => (
+  <motion.div
+    className="absolute top-1/2 left-1/2 pointer-events-none"
+    style={{ width: radius * 2, height: radius * 2, marginLeft: -radius, marginTop: -radius }}
+    animate={{ rotate: reverse ? -360 : 360 }}
+    transition={{ duration, repeat: Infinity, ease: 'linear', delay }}
+  >
+    <div
+      className="absolute rounded-full shadow-lg"
+      style={{
+        width: size,
+        height: size,
+        top: 0,
+        left: '50%',
+        marginLeft: -(size / 2),
+        marginTop: -(size / 2),
+        background: color,
+        boxShadow: `0 0 ${size * 3}px ${color}`,
+      }}
+    />
+  </motion.div>
+);
+
+/* ─── Hero ─── */
 const Hero: React.FC = () => {
-  const { name, bio, typingRoles, profilePicture, social, email, resumeUrl, availableForWork, stats } = portfolioConfig;
+  const {
+    name, bio, typingRoles,
+    profilePictures,
+    social, email, resumeUrl,
+    availableForWork, stats,
+  } = portfolioConfig;
+
+  /* picture carousel */
+  const pics = profilePictures ?? ['/profile.jpg'];
+  const [picIndex, setPicIndex] = useState(0);
+  useEffect(() => {
+    if (pics.length <= 1) return;
+    const id = setInterval(() => setPicIndex(i => (i + 1) % pics.length), 3500);
+    return () => clearInterval(id);
+  }, [pics.length]);
+
+  const initials = name.split(' ').map((n: string) => n[0]).join('');
+  const typingSequence = typingRoles.flatMap(r => [r, 2000]);
 
   const socials = [
-    { icon: <FiGithub size={20} />, href: social.github, label: 'GitHub' },
-    { icon: <FiLinkedin size={20} />, href: social.linkedin, label: 'LinkedIn' },
-    { icon: <FiMail size={20} />, href: `mailto:${email}`, label: 'Email' },
+    { icon: <FiGithub size={20} />, href: social.github,           label: 'GitHub'   },
+    { icon: <FiLinkedin size={20} />, href: social.linkedin,       label: 'LinkedIn' },
+    { icon: <FiMail size={20} />,    href: `mailto:${email}`,      label: 'Email'    },
   ];
-
-  const scrollToAbout = () => {
-    document.querySelector('#about')?.scrollIntoView({ behavior: 'smooth' });
-  };
-
-  // Build type animation sequence from roles
-  const typingSequence = typingRoles.flatMap(role => [role, 2000]);
 
   return (
     <section
       id="hero"
       className="relative min-h-screen flex items-center justify-center overflow-hidden"
     >
-      {/* Animated gradient background */}
+      {/* ── Animated bg ── */}
       <div className="absolute inset-0 z-0">
-        <div className="absolute inset-0 bg-gradient-to-br from-gray-950 via-blue-950/20 to-gray-950" />
+        <div className="absolute inset-0 bg-gradient-to-br from-gray-50 via-blue-50/30 to-purple-50/20 dark:from-gray-950 dark:via-blue-950/20 dark:to-gray-950" />
         <div
-          className="absolute inset-0 opacity-30"
+          className="absolute inset-0 opacity-20 dark:opacity-30"
           style={{
             backgroundImage: `radial-gradient(ellipse at 20% 50%, rgba(59,130,246,0.15) 0%, transparent 50%),
               radial-gradient(ellipse at 80% 20%, rgba(139,92,246,0.15) 0%, transparent 50%)`,
           }}
         />
-        {/* Grid overlay */}
         <div
-          className="absolute inset-0 opacity-5"
+          className="absolute inset-0 opacity-[0.03]"
           style={{
-            backgroundImage: `linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px),
-              linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px)`,
+            backgroundImage: `linear-gradient(rgba(0,0,0,0.3) 1px, transparent 1px),
+              linear-gradient(90deg, rgba(0,0,0,0.3) 1px, transparent 1px)`,
             backgroundSize: '50px 50px',
           }}
         />
@@ -48,71 +89,67 @@ const Hero: React.FC = () => {
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-24 pb-16">
         <div className="flex flex-col lg:flex-row items-center justify-between gap-16">
-          {/* Left — Text */}
+
+          {/* ── LEFT — text ── */}
           <div className="flex-1 text-center lg:text-left">
-            {/* Available badge */}
             {availableForWork && (
               <motion.div
                 initial={{ opacity: 0, y: -20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5 }}
-                className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-green-500/10 border border-green-500/20 text-green-400 text-sm font-medium mb-6"
+                className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-green-500/10 border border-green-500/20 text-green-600 dark:text-green-400 text-sm font-medium mb-6"
               >
-                <span className="w-2 h-2 rounded-full bg-green-400 animate-pulse" />
+                <span className="w-2 h-2 rounded-full bg-green-500 dark:bg-green-400 animate-pulse" />
                 Available for work
               </motion.div>
             )}
 
-            {/* Greeting */}
             <motion.p
               initial={{ opacity: 0, x: -30 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.5, delay: 0.1 }}
-              className="text-blue-400 font-mono text-lg mb-2 font-medium"
+              className="text-blue-600 dark:text-blue-400 font-mono text-lg mb-2 font-medium"
             >
               Hello, I'm
             </motion.p>
 
-            {/* Name */}
             <motion.h1
               initial={{ opacity: 0, x: -30 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.6, delay: 0.2 }}
               className="text-5xl sm:text-6xl lg:text-7xl font-extrabold mb-4 leading-tight"
             >
-              <span className="bg-gradient-to-r from-white via-blue-100 to-purple-200 bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-gray-900 via-blue-800 to-purple-700 dark:from-white dark:via-blue-100 dark:to-purple-200 bg-clip-text text-transparent">
                 {name}
               </span>
             </motion.h1>
 
-            {/* Typing roles */}
             <motion.div
               initial={{ opacity: 0, x: -30 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.6, delay: 0.3 }}
               className="text-2xl sm:text-3xl font-bold mb-6 h-10"
             >
-              <span className="text-gray-400">I'm a </span>
+              <span className="text-gray-500 dark:text-gray-400">I'm a </span>
               <TypeAnimation
                 sequence={typingSequence as (string | number)[]}
                 wrapper="span"
                 speed={50}
                 repeat={Infinity}
-                className="bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent"
+                className="bg-gradient-to-r from-blue-500 to-purple-500 bg-clip-text text-transparent"
               />
             </motion.div>
 
-            {/* Bio */}
             <motion.p
               initial={{ opacity: 0, x: -30 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.6, delay: 0.4 }}
-              className="text-gray-400 text-lg max-w-xl mb-8 leading-relaxed"
+              className="text-gray-600 dark:text-gray-400 text-lg max-w-xl mb-8 leading-relaxed"
             >
               {bio}
             </motion.p>
 
-            {/* CTA Buttons */}
+            {/* CTA */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -133,14 +170,14 @@ const Hero: React.FC = () => {
                 rel="noopener noreferrer"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="px-8 py-3.5 border border-white/20 text-white font-semibold rounded-xl hover:bg-white/5 hover:border-blue-500/40 transition-all flex items-center gap-2"
+                className="px-8 py-3.5 border border-gray-300 dark:border-white/20 text-gray-700 dark:text-white font-semibold rounded-xl hover:bg-gray-100 dark:hover:bg-white/5 hover:border-blue-400 dark:hover:border-blue-500/40 transition-all flex items-center gap-2"
               >
                 <FiDownload size={16} />
                 Resume
               </motion.a>
             </motion.div>
 
-            {/* Social Links */}
+            {/* Socials */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -156,7 +193,7 @@ const Hero: React.FC = () => {
                   aria-label={s.label}
                   whileHover={{ scale: 1.1, y: -2 }}
                   whileTap={{ scale: 0.9 }}
-                  className="p-3 rounded-xl bg-white/5 border border-white/10 text-gray-400 hover:text-white hover:border-blue-500/40 hover:bg-blue-500/10 transition-all"
+                  className="p-3 rounded-xl bg-gray-100 dark:bg-white/5 border border-gray-200 dark:border-white/10 text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-white hover:border-blue-400 dark:hover:border-blue-500/40 hover:bg-blue-50 dark:hover:bg-blue-500/10 transition-all"
                 >
                   {s.icon}
                 </motion.a>
@@ -164,7 +201,7 @@ const Hero: React.FC = () => {
             </motion.div>
           </div>
 
-          {/* Right — Profile Picture */}
+          {/* ── RIGHT — profile picture with orbital animation ── */}
           <motion.div
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
@@ -172,56 +209,113 @@ const Hero: React.FC = () => {
             className="flex-shrink-0"
           >
             <div className="relative w-72 h-72 sm:w-80 sm:h-80 lg:w-96 lg:h-96">
-              {/* Rotating ring */}
+
+              {/* ── Layer 1: outermost conic gradient ring (slow CW) ── */}
               <motion.div
                 animate={{ rotate: 360 }}
-                transition={{ duration: 20, repeat: Infinity, ease: 'linear' }}
-                className="absolute inset-0 rounded-full"
+                transition={{ duration: 18, repeat: Infinity, ease: 'linear' }}
+                className="absolute inset-0 rounded-full p-[3px]"
                 style={{
-                  background: 'conic-gradient(from 0deg, #3b82f6, #8b5cf6, #ec4899, #06b6d4, #3b82f6)',
-                  padding: '3px',
+                  background: 'conic-gradient(from 0deg, #3b82f6, #8b5cf6, #ec4899, #06b6d4, #10b981, #3b82f6)',
                   borderRadius: '50%',
                 }}
               >
-                <div className="w-full h-full rounded-full bg-gray-950" />
+                <div className="w-full h-full rounded-full bg-gray-50 dark:bg-gray-950" />
               </motion.div>
 
-              {/* Second ring */}
+              {/* ── Layer 2: dashed ring (slow CCW) ── */}
               <motion.div
                 animate={{ rotate: -360 }}
-                transition={{ duration: 15, repeat: Infinity, ease: 'linear' }}
-                className="absolute inset-3 rounded-full border border-dashed border-blue-500/30"
+                transition={{ duration: 14, repeat: Infinity, ease: 'linear' }}
+                className="absolute inset-[10px] rounded-full border-2 border-dashed border-blue-400/30 dark:border-blue-500/30"
               />
 
-              {/* Profile Image */}
-              <div className="absolute inset-3 rounded-full overflow-hidden border-2 border-white/10">
-                <img
-                  src={profilePicture}
-                  alt={name}
-                  className="w-full h-full object-cover"
-                  onError={e => {
-                    const t = e.target as HTMLImageElement;
-                    t.style.display = 'none';
-                    t.parentElement!.innerHTML = `
-                      <div class="w-full h-full bg-gradient-to-br from-blue-600 to-purple-700 flex items-center justify-center text-7xl font-extrabold text-white select-none">
-                        ${name.split(' ').map((n: string) => n[0]).join('')}
-                      </div>`;
-                  }}
-                />
+              {/* ── Layer 3: dotted ring (medium CW) ── */}
+              <motion.div
+                animate={{ rotate: 360 }}
+                transition={{ duration: 10, repeat: Infinity, ease: 'linear' }}
+                className="absolute inset-[18px] rounded-full border border-dotted border-purple-400/25 dark:border-purple-500/25"
+              />
+
+              {/* ── Orbiting glowing dots ── */}
+              {/* blue dot — outer */}
+              <OrbitDot size={10} color="#3b82f6" radius={155} duration={6}   delay={0}   />
+              {/* purple dot — outer offset */}
+              <OrbitDot size={8}  color="#8b5cf6" radius={155} duration={6}   delay={3}   />
+              {/* pink dot — mid */}
+              <OrbitDot size={7}  color="#ec4899" radius={130} duration={9}   delay={1}   reverse />
+              {/* cyan dot — mid offset */}
+              <OrbitDot size={6}  color="#06b6d4" radius={130} duration={9}   delay={4.5} reverse />
+              {/* green dot — inner */}
+              <OrbitDot size={5}  color="#10b981" radius={108} duration={7}   delay={2}   />
+
+              {/* ── Glow halo ── */}
+              <div
+                className="absolute inset-[22px] rounded-full opacity-20 blur-xl pointer-events-none"
+                style={{
+                  background: 'radial-gradient(circle, #3b82f6 0%, #8b5cf6 50%, transparent 70%)',
+                }}
+              />
+
+              {/* ── Profile image carousel ── */}
+              <div className="absolute inset-[22px] rounded-full overflow-hidden border-2 border-white/20 dark:border-white/10 shadow-2xl">
+                <AnimatePresence mode="wait">
+                  <motion.div
+                    key={picIndex}
+                    initial={{ opacity: 0, scale: 1.1 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    exit={{ opacity: 0, scale: 0.95 }}
+                    transition={{ duration: 0.7, ease: 'easeInOut' }}
+                    className="w-full h-full"
+                  >
+                    <img
+                      src={pics[picIndex]}
+                      alt={`${name} — photo ${picIndex + 1}`}
+                      className="w-full h-full object-cover"
+                      onError={e => {
+                        const t = e.target as HTMLImageElement;
+                        t.style.display = 'none';
+                        if (t.parentElement) {
+                          t.parentElement.innerHTML = `
+                            <div style="width:100%;height:100%;background:linear-gradient(135deg,#2563eb,#7c3aed);display:flex;align-items:center;justify-content:center;font-size:4rem;font-weight:900;color:white;user-select:none;border-radius:50%">
+                              ${initials}
+                            </div>`;
+                        }
+                      }}
+                    />
+                  </motion.div>
+                </AnimatePresence>
               </div>
 
-              {/* Floating badges */}
+              {/* ── Dot indicators (which photo is showing) ── */}
+              {pics.length > 1 && (
+                <div className="absolute -bottom-6 left-1/2 -translate-x-1/2 flex gap-1.5">
+                  {pics.map((_, idx) => (
+                    <button
+                      key={idx}
+                      onClick={() => setPicIndex(idx)}
+                      className={`rounded-full transition-all duration-300 ${
+                        idx === picIndex
+                          ? 'w-5 h-2 bg-blue-500'
+                          : 'w-2 h-2 bg-gray-400 dark:bg-gray-600 hover:bg-blue-400'
+                      }`}
+                    />
+                  ))}
+                </div>
+              )}
+
+              {/* ── Floating badges ── */}
               <motion.div
                 animate={{ y: [0, -8, 0] }}
                 transition={{ duration: 3, repeat: Infinity, ease: 'easeInOut' }}
-                className="absolute -top-4 -right-4 px-3 py-2 bg-blue-600/90 backdrop-blur rounded-xl text-xs font-semibold text-white shadow-lg shadow-blue-500/30 border border-blue-400/30"
+                className="absolute -top-3 -right-6 px-3 py-2 bg-blue-600/90 backdrop-blur-sm rounded-xl text-xs font-semibold text-white shadow-lg shadow-blue-500/30 border border-blue-400/30 whitespace-nowrap"
               >
                 💻 Full Stack
               </motion.div>
               <motion.div
                 animate={{ y: [0, 8, 0] }}
                 transition={{ duration: 4, repeat: Infinity, ease: 'easeInOut', delay: 1 }}
-                className="absolute -bottom-4 -left-4 px-3 py-2 bg-purple-600/90 backdrop-blur rounded-xl text-xs font-semibold text-white shadow-lg shadow-purple-500/30 border border-purple-400/30"
+                className="absolute -bottom-3 -left-6 px-3 py-2 bg-purple-600/90 backdrop-blur-sm rounded-xl text-xs font-semibold text-white shadow-lg shadow-purple-500/30 border border-purple-400/30 whitespace-nowrap"
               >
                 🚀 Open to Work
               </motion.div>
@@ -229,12 +323,12 @@ const Hero: React.FC = () => {
           </motion.div>
         </div>
 
-        {/* Stats Bar */}
+        {/* ── Stats bar ── */}
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.8 }}
-          className="mt-20 grid grid-cols-2 sm:grid-cols-4 gap-4"
+          className="mt-24 grid grid-cols-2 sm:grid-cols-4 gap-4"
         >
           {stats.map((stat, i) => (
             <motion.div
@@ -242,17 +336,17 @@ const Hero: React.FC = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.9 + i * 0.1 }}
-              className="text-center p-4 rounded-2xl bg-white/3 backdrop-blur-sm border border-white/5 hover:border-blue-500/20 transition-all"
+              className="text-center p-4 rounded-2xl bg-white/60 dark:bg-white/3 backdrop-blur-sm border border-gray-200 dark:border-white/5 hover:border-blue-400/40 dark:hover:border-blue-500/20 transition-all shadow-sm dark:shadow-none"
             >
-              <div className="text-3xl font-extrabold bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
+              <div className="text-3xl font-extrabold bg-gradient-to-r from-blue-500 to-purple-500 bg-clip-text text-transparent">
                 {stat.value}
               </div>
-              <div className="text-sm text-gray-500 mt-1">{stat.label}</div>
+              <div className="text-sm text-gray-500 dark:text-gray-500 mt-1">{stat.label}</div>
             </motion.div>
           ))}
         </motion.div>
 
-        {/* Scroll indicator */}
+        {/* ── Scroll indicator ── */}
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
@@ -260,10 +354,10 @@ const Hero: React.FC = () => {
           className="flex justify-center mt-12"
         >
           <motion.button
-            onClick={scrollToAbout}
+            onClick={() => document.querySelector('#about')?.scrollIntoView({ behavior: 'smooth' })}
             animate={{ y: [0, 8, 0] }}
             transition={{ duration: 2, repeat: Infinity }}
-            className="flex flex-col items-center gap-2 text-gray-500 hover:text-gray-300 transition-colors"
+            className="flex flex-col items-center gap-2 text-gray-400 hover:text-gray-600 dark:hover:text-gray-300 transition-colors"
           >
             <span className="text-xs font-medium tracking-widest uppercase">Scroll</span>
             <FiArrowDown size={18} />

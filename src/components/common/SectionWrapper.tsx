@@ -9,10 +9,14 @@ interface SectionWrapperProps {
 }
 
 const SectionWrapper: React.FC<SectionWrapperProps> = ({ id, children, className = '' }) => {
-  const { ref, inView } = useInView({ triggerOnce: true, threshold: 0.1 });
+  const { ref, inView } = useInView({ triggerOnce: true, threshold: 0.08 });
 
   return (
-    <section id={id} ref={ref} className={`py-20 relative overflow-hidden ${className}`}>
+    <section
+      id={id}
+      ref={ref}
+      className={`py-20 relative overflow-hidden transition-colors duration-300 ${className}`}
+    >
       <motion.div
         initial={{ opacity: 0, y: 60 }}
         animate={inView ? { opacity: 1, y: 0 } : {}}

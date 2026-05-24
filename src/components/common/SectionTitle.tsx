@@ -10,7 +10,7 @@ interface SectionTitleProps {
 const SectionTitle: React.FC<SectionTitleProps> = ({
   title,
   subtitle,
-  gradient = 'from-blue-400 via-purple-400 to-pink-400',
+  gradient = 'from-blue-500 via-purple-500 to-pink-500',
 }) => (
   <div className="text-center mb-16">
     <motion.div
@@ -35,7 +35,7 @@ const SectionTitle: React.FC<SectionTitleProps> = ({
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.5, delay: 0.2 }}
-        className="text-gray-400 dark:text-gray-400 text-lg max-w-2xl mx-auto"
+        className="text-gray-500 dark:text-gray-400 text-lg max-w-2xl mx-auto"
       >
         {subtitle}
       </motion.p>
