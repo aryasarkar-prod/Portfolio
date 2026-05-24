@@ -59,7 +59,7 @@ const About: React.FC = () => {
                   whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: i * 0.1 }}
-                  className="text-gray-600 dark:text-gray-400 text-sm bg-gray-100 dark:bg-white/3 border border-gray-200 dark:border-white/5 rounded-xl px-4 py-2.5"
+                  className="text-gray-600 dark:text-gray-400 text-sm bg-gray-100 dark:bg-gray-800/60 border border-gray-200 dark:border-gray-700/60 rounded-xl px-4 py-2.5"
                 >
                   {fact}
                 </motion.div>
@@ -81,7 +81,7 @@ const About: React.FC = () => {
                   <GlassCard className="p-5 h-full">
                     <div className="mb-3">{h.icon}</div>
                     <h4 className="text-gray-900 dark:text-white font-semibold text-sm mb-2">{h.title}</h4>
-                    <p className="text-gray-500 dark:text-gray-500 text-xs leading-relaxed">{h.desc}</p>
+                    <p className="text-gray-500 dark:text-gray-400 text-xs leading-relaxed">{h.desc}</p>
                   </GlassCard>
                 </motion.div>
               ))}
@@ -100,7 +100,7 @@ const About: React.FC = () => {
                       <div className="text-2xl font-extrabold bg-gradient-to-r from-blue-500 to-purple-500 bg-clip-text text-transparent">
                         {stat.value}
                       </div>
-                      <div className="text-xs text-gray-500 dark:text-gray-500 mt-1">{stat.label}</div>
+                      <div className="text-xs text-gray-500 dark:text-gray-400 mt-1">{stat.label}</div>
                     </div>
                   ))}
                 </div>
