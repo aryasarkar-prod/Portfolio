@@ -9,7 +9,7 @@ interface LayoutProps {
 
 const Layout: React.FC<LayoutProps> = ({ children }) => {
   return (
-    <div className="min-h-screen bg-slate-50 dark:bg-gray-950 text-gray-900 dark:text-white relative transition-colors duration-300">
+    <div className="min-h-screen bg-slate-50 dark:bg-gray-950 text-gray-900 dark:text-white relative transition-colors duration-300 antialiased">
 
       {/* Ambient gradient blobs */}
       <div className="fixed inset-0 overflow-hidden pointer-events-none z-0">

@@ -12,18 +12,24 @@
   html {
     scroll-behavior: smooth;
     scroll-padding-top: 4rem;
+    background-color: #030712; /* matches gray-950 — prevents flash */
   }
 
-  /* ── Dark mode (default) ── */
+  html.dark {
+    background-color: #030712;
+    color-scheme: dark;
+  }
+
+  /* ── Light mode (when .dark is NOT on html) ── */
   body {
-    @apply bg-gray-950 text-white;
+    @apply bg-slate-50 text-gray-900;
     font-family: 'Inter', system-ui, sans-serif;
     overflow-x: hidden;
   }
 
-  /* ── Light mode ── */
-  html.light body {
-    @apply bg-slate-50 text-gray-900;
+  /* ── Dark mode ── */
+  html.dark body {
+    @apply bg-gray-950 text-white;
   }
 
   /* Scrollbar — dark */
@@ -33,8 +39,9 @@
   ::-webkit-scrollbar-thumb:hover { @apply bg-blue-600; }
 
   /* Scrollbar — light */
-  html.light ::-webkit-scrollbar-track { @apply bg-slate-200; }
-  html.light ::-webkit-scrollbar-thumb { @apply bg-blue-400/60 rounded-full; }
+  body:not(html.dark *) ::-webkit-scrollbar-track { @apply bg-slate-200; }
+  html:not(.dark) ::-webkit-scrollbar-track { @apply bg-slate-200; }
+  html:not(.dark) ::-webkit-scrollbar-thumb { @apply bg-blue-400/60 rounded-full; }
 
   /* Selection */
   ::selection {

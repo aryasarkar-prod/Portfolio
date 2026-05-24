@@ -336,7 +336,7 @@ const Hero: React.FC = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.9 + i * 0.1 }}
-              className="text-center p-4 rounded-2xl bg-white/60 dark:bg-white/3 backdrop-blur-sm border border-gray-200 dark:border-white/5 hover:border-blue-400/40 dark:hover:border-blue-500/20 transition-all shadow-sm dark:shadow-none"
+              className="text-center p-4 rounded-2xl bg-white/60 dark:bg-gray-800/60 backdrop-blur-sm border border-gray-200 dark:border-gray-700/50 hover:border-blue-400/40 dark:hover:border-blue-500/30 transition-all shadow-sm dark:shadow-none"
             >
               <div className="text-3xl font-extrabold bg-gradient-to-r from-blue-500 to-purple-500 bg-clip-text text-transparent">
                 {stat.value}

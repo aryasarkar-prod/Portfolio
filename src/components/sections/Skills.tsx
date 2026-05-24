@@ -83,7 +83,7 @@ const Skills: React.FC = () => {
                   </div>
                 </div>
 
-                <div className="h-1.5 bg-gray-200 dark:bg-white/5 rounded-full overflow-hidden">
+                <div className="h-1.5 bg-gray-200 dark:bg-gray-700/60 rounded-full overflow-hidden">
                   <motion.div
                     initial={{ width: 0 }}
                     whileInView={{ width: `${skill.level}%` }}
@@ -96,7 +96,7 @@ const Skills: React.FC = () => {
                   />
                 </div>
 
-                <p className="text-xs text-gray-400 dark:text-gray-600 mt-2">
+                <p className="text-xs text-gray-400 dark:text-gray-500 mt-2">
                   {skill.level >= 90 ? 'Expert' : skill.level >= 75 ? 'Advanced' : skill.level >= 60 ? 'Intermediate' : 'Familiar'}
                 </p>
               </GlassCard>
@@ -124,7 +124,7 @@ const Skills: React.FC = () => {
                 whileHover={{ scale: 1.1, y: -2 }}
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.03 }}
-                className="flex items-center gap-2 px-4 py-2 rounded-xl bg-gray-100 dark:bg-white/3 border border-gray-200 dark:border-white/8 text-sm text-gray-600 dark:text-gray-300 hover:border-blue-400 dark:hover:border-blue-500/30 hover:text-blue-600 dark:hover:text-white transition-all"
+                className="flex items-center gap-2 px-4 py-2 rounded-xl bg-gray-100 dark:bg-gray-800/60 border border-gray-200 dark:border-gray-700/60 text-sm text-gray-600 dark:text-gray-300 hover:border-blue-400 dark:hover:border-blue-500/30 hover:text-blue-600 dark:hover:text-white transition-all"
               >
                 <span>{iconEmojis[skill.icon] || '🔧'}</span>
                 {skill.name}

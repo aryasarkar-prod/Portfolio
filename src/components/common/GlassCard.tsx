@@ -15,11 +15,11 @@ const GlassCard: React.FC<GlassCardProps> = ({ children, className = '', hover =
     transition={{ type: 'spring', stiffness: 300, damping: 22 }}
     className={`
       backdrop-blur-md
-      bg-white/70 dark:bg-white/5
-      border border-gray-200 dark:border-white/10
+      bg-white/80 dark:bg-gray-800/70
+      border border-gray-200 dark:border-gray-700/60
       rounded-2xl shadow-sm dark:shadow-xl
       ${hover
-        ? 'cursor-pointer hover:border-blue-400/50 dark:hover:border-blue-500/40 hover:shadow-md dark:hover:shadow-blue-500/10 dark:hover:shadow-2xl'
+        ? 'cursor-pointer hover:border-blue-400/50 dark:hover:border-blue-500/50 hover:shadow-md dark:hover:shadow-blue-500/10 dark:hover:shadow-2xl'
         : ''}
       transition-all duration-300
       ${className}
