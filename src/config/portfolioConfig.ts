@@ -58,7 +58,7 @@ export const portfolioConfig = {
       grade: "SGPA: 8.95/ 10",
       description:
         "Specialized in software engineering, data structures, algorithms, and distributed systems. Active member of the coding club.",
-      logo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTdnzYFt64xTz2CrRVdAbs8cvRmuJ70aGANmQ&s",
+      logo: "/logo1.jpg",
       highlights: ["Dean's List", "Best Final Year Project Award"],
     },
     {
