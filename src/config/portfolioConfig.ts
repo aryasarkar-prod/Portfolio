@@ -70,7 +70,7 @@ export const portfolioConfig = {
       grade: "CGPA: 8.9 / 10",
       description:
         "Specialized in software engineering, data structures, algorithms, and distributed systems. Active member of the coding club.",
-      logo: "/logos/jadavpur.png",   // ← upload public/logos/jadavpur.png
+      logo: "https://upload.wikimedia.org/wikipedia/en/5/57/Jadavpur_University_Logo.svg",
       highlights: ["Dean's List", "Best Final Year Project Award"],
     },
     {
@@ -83,7 +83,7 @@ export const portfolioConfig = {
       grade: "Percentage: 95.2%",
       description:
         "Physics, Chemistry, Mathematics & Computer Science. School topper in Computer Science.",
-      logo: "/logos/southpoint.png", // ← upload public/logos/southpoint.png
+      logo: "https://upload.wikimedia.org/wikipedia/en/0/0b/SouthPointSchoolLogo.jpg",
       highlights: ["School Topper — CS", "State Rank 12 in JEE Mains"],
     },
   ],
