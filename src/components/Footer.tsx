@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { portfolioConfig } from '../config/portfolioConfig';
-import { FiGithub, FiLinkedin, FiTwitter, FiInstagram, FiMail, FiHeart } from 'react-icons/fi';
+import { FiGithub, FiLinkedin, FiInstagram, FiMail, FiHeart, FiFacebook } from 'react-icons/fi';
 
 const Footer: React.FC = () => {
   const { social, email, name } = portfolioConfig;
@@ -9,7 +9,7 @@ const Footer: React.FC = () => {
   const socials = [
     { icon: <FiGithub size={18} />,    href: social.github,        label: 'GitHub'    },
     { icon: <FiLinkedin size={18} />,  href: social.linkedin,      label: 'LinkedIn'  },
-    { icon: <FiTwitter size={18} />,   href: social.twitter,       label: 'Twitter'   },
+    { icon: <FiFacebook size={18} />,  href: social.facebook,      label: 'Facebook'  },
     { icon: <FiInstagram size={18} />, href: social.instagram,     label: 'Instagram' },
     { icon: <FiMail size={18} />,      href: `mailto:${email}`,    label: 'Email'     },
   ];

@@ -7,7 +7,7 @@ import SectionTitle from '../common/SectionTitle';
 import GlassCard from '../common/GlassCard';
 import {
   FiMail, FiMapPin, FiGithub, FiLinkedin,
-  FiTwitter, FiSend, FiCheckCircle, FiAlertCircle,
+  FiFacebook, FiSend, FiCheckCircle, FiAlertCircle,
 } from 'react-icons/fi';
 
 type Status = 'idle' | 'loading' | 'success' | 'error';
@@ -45,9 +45,9 @@ const Contact: React.FC = () => {
     { icon: <FiMapPin size={18} className="text-purple-500" />, label: 'Location', value: location, href: null },
   ];
   const socials = [
-    { icon: <FiGithub size={18} />,   href: social.github,   label: 'GitHub',   hover: 'hover:text-gray-900 dark:hover:text-white   hover:border-gray-400/40' },
-    { icon: <FiLinkedin size={18} />, href: social.linkedin, label: 'LinkedIn', hover: 'hover:text-blue-600 dark:hover:text-blue-400 hover:border-blue-400/40'  },
-    { icon: <FiTwitter size={18} />,  href: social.twitter,  label: 'Twitter',  hover: 'hover:text-cyan-600  dark:hover:text-cyan-400  hover:border-cyan-400/40'  },
+    { icon: <FiGithub size={18} />,   href: social.github,    label: 'GitHub',   hover: 'hover:text-gray-900 dark:hover:text-white   hover:border-gray-400/40' },
+    { icon: <FiLinkedin size={18} />, href: social.linkedin,  label: 'LinkedIn', hover: 'hover:text-blue-600 dark:hover:text-blue-400 hover:border-blue-400/40'  },
+    { icon: <FiFacebook size={18} />, href: social.facebook,  label: 'Facebook', hover: 'hover:text-blue-700 dark:hover:text-blue-400 hover:border-blue-500/40'  },
   ];
 
   return (
