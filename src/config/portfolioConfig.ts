@@ -121,7 +121,7 @@ export const portfolioConfig = {
       description:
         "Led full-stack development of a SaaS platform serving 50k+ users using Django, Redis, and AWS. Optimized deployment and system performance, improving scalability and reducing build times by 70%",
       technologies: ["React", "TypeScript", "GraphQL", "AWS", "Django","LLM","GEN-AI"],
-      logo: "https://in.linkedin.com/company/e42dotai",
+      logo: "https://e42.ai/wp-content/uploads/2021/09/E_42-logo.png",
       achievements: [
         "Reduced bundle size by 45% through code splitting",
         "Mentored a team of 4 junior developers",
@@ -139,7 +139,7 @@ export const portfolioConfig = {
       description:
         "Built RESTful APIs and React dashboards for an EdTech platform with 10k+ daily active users.",
       technologies: ["React", "Node.js", "MongoDB", "Docker", "Redis","Django","Celery"],
-      logo: "https://au.linkedin.com/company/predicta-digital",   // ← upload public/logos/innovatetech.png
+      logo: "https://predictaanalytics.io/wp-content/uploads/2025/11/predicta-logo.png",   // ← upload public/logos/innovatetech.png
       achievements: [
         "Built real-time notification system with WebSockets",
         "Improved API response time by 60%",
@@ -156,7 +156,7 @@ export const portfolioConfig = {
       description:
         "Developed and shipped 5+ features for an banking product recommendation engine.",
       technologies: ["React", "Python", "FastAPI", "PostgreSQL"],
-      logo: "https://1000logos.net/wipro-logo/",     // ← upload public/logos/startuphub.png
+      logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/89/Wipro_new_logo.svg/3840px-Wipro_new_logo.svg.png",     // ← upload public/logos/startuphub.png
       achievements: [
         "Built recommendation widget used by 2k+ merchants",
         "Wrote unit & integration tests with 85% coverage",
@@ -174,7 +174,7 @@ export const portfolioConfig = {
       description:
         "Worked as a Frontend Developer, building responsive and scalable applications using React.js, PyQt, and PySide6. Developed modern user interfaces, integrated APIs, optimized application performance, and enhanced overall user experience. Collaborated with cross-functional teams, resolved complex debugging issues, and delivered high-quality projects within deadlines while maintaining efficient and reusable code standards.",
       technologies: ["React", "Python", "FastAPI", "PostgreSQL","PyQt","PySide6"],
-      logo: "https://logos-download.com/brands/tata-consultancy-services",     // ← upload public/logos/startuphub.png
+      logo: "https://upload.wikimedia.org/wikipedia/en/thumb/b/b1/Tata_Consultancy_Services.svg/3840px-Tata_Consultancy_Services.svg.png",     // ← upload public/logos/startuphub.png
       achievements: [
         "Increased application performance by 40% through frontend optimization",
         "Delivered multiple client projects within deadlines with high-quality UI standards",
