@@ -26,7 +26,29 @@ const Contact: React.FC = () => {
     if (!formRef.current) return;
     setStatus('loading');
     try {
-      await emailjs.sendForm(ejsConfig.serviceId, ejsConfig.templateId, formRef.current, ejsConfig.publicKey);
+      // Email 1 — sends message to YOU
+      await emailjs.sendForm(
+        ejsConfig.serviceId,
+        ejsConfig.templateId,
+        formRef.current,
+        ejsConfig.publicKey,
+      );
+
+      // Email 2 — auto-reply to the SENDER (only if autoReplyTemplateId is set)
+      if (ejsConfig.autoReplyTemplateId) {
+        await emailjs.send(
+          ejsConfig.serviceId,
+          ejsConfig.autoReplyTemplateId,
+          {
+            name:    formData.name,
+            email:   formData.email,
+            subject: formData.subject,
+            message: formData.message,
+          },
+          ejsConfig.publicKey,
+        );
+      }
+
       setStatus('success');
       setFormData({ name: '', email: '', subject: '', message: '' });
     } catch { setStatus('error'); }
