@@ -131,7 +131,7 @@ export const portfolioConfig = {
     {
       id: 2,
       role: "Consultant",
-      company: "Predicta Digital,
+      company: "Predicta Digital",
       location: "Kolkata, India",
       startDate: "Oct 2025",
       endDate: "Dec 2025",
