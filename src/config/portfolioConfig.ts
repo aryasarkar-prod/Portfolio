@@ -29,7 +29,7 @@ export const portfolioConfig = {
   // Paste any direct MP3/OGG URL below, or upload to /public/music.mp3
   // Set src to "" or remove the block to disable the music player
   music: {
-    src:    "https://youtu.be/V0H1fxX15Tg?si=-xQjYyjCZS8hOO3H",                    // ← paste your song URL here (MP3 / OGG)
+    src:    "/song.mp3",                    // ← paste your song URL here (MP3 / OGG)
     title:  "Lofi Chill Beats",   // ← song name shown in player
     artist: "Artist Name",        // ← artist shown in player
   },
