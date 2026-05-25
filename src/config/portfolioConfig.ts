@@ -17,15 +17,15 @@ export const portfolioConfig = {
   location: "Kolkata, India",
   // Add as many photos as you want — they will cycle automatically in the Hero
   profilePictures: [
-    "/profile1.jpg",
-    "/profile2.jpg",
-    "/profile3.jpg",
+    "https://scontent-ccu2-1.xx.fbcdn.net/v/t39.30808-6/420099042_3525318994464150_5961493800280190180_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=a5f93a&_nc_ohc=Z7VDnI-mpBsQ7kNvwFT0iXd&_nc_oc=Ado5__bDPPIjSosjnDYbT2Pz5UAbgsfURrhLvhrkgvGdA3ROaPY_Vw1ulxIU27sVRGY&_nc_zt=23&_nc_ht=scontent-ccu2-1.xx&_nc_gid=WjKs0dsv6iNz_X1bDXniaA&_nc_ss=7b2a8&oh=00_Af6bgxtlhyFrj-tNizKJR5Xx2M6dQ_oao3GKTEoOjn2Qlw&oe=6A199E55",
+    "https://scontent-ccu2-1.xx.fbcdn.net/v/t39.30808-6/673577251_4244858462510196_2738507914906241060_n.jpg?_nc_cat=108&ccb=1-7&_nc_sid=833d8c&_nc_ohc=rjKZp_kgtEAQ7kNvwHz_69m&_nc_oc=AdqDN2xh7tgcg8AqRiMiyJ-ncZGaTlm5rTy5CNoPEyo9AeiiPAwgtiEcHpTEclzm3gU&_nc_zt=23&_nc_ht=scontent-ccu2-1.xx&_nc_gid=aRwTHIKKLTGteFUv24lN_Q&_nc_ss=7b2a8&oh=00_Af78pCRc2AcvtUwcGnmtYcSDHAKhz4Y-wXjqkkxsGR8FSQ&oe=6A19C3C8",
+    "https://scontent-ccu2-1.xx.fbcdn.net/v/t39.30808-6/486267158_3864850183844361_4225121318084447456_n.jpg?_nc_cat=103&ccb=1-7&_nc_sid=86c6b0&_nc_ohc=ua-pPwiCwBgQ7kNvwH_RUrU&_nc_oc=AdpqsVstCirHgeAjZ3RJsNMnu1BfRlVmCrRowOEvzk8e0t8YeZEGWLUeGIFjHG3xEKc&_nc_zt=23&_nc_ht=scontent-ccu2-1.xx&_nc_gid=x_648QbDp0BD_InfTlQK_A&_nc_ss=7b2a8&oh=00_Af41Gi0wFqEJhZpnP4qY-rlk-zQOYH0eln8q6-Q5yW4GvA&oe=6A19B94B",
   ],
   resumeUrl: "/resume.pdf",       // Place your resume in /public/resume.pdf
   availableForWork: true,
 
   // ── Contact & Social ──────────────────────────────────────
-  email: "aryasarkar@example.com",
+  email: "aryasarkar60@gmail.com",
   social: {
     github: "https://github.com/aryasarkar-prod",
     linkedin: "https://linkedin.com/in/aryasarkar",
@@ -62,15 +62,16 @@ export const portfolioConfig = {
   education: [
     {
       id: 1,
-      degree: "B.Tech in Computer Science & Engineering",
-      institution: "Jadavpur University",
+      degree: "B.Tech in Mechanical Engineering",
+      institution: "Academy of Technology,Hooghly,Adispatagram",
       location: "Kolkata, India",
-      startYear: "2019",
-      endYear: "2023",
-      grade: "CGPA: 8.9 / 10",
+      startYear: "2018",
+      endYear: "2022",
+      grade: "SGPA: 8.95/ 10",
       description:
         "Specialized in software engineering, data structures, algorithms, and distributed systems. Active member of the coding club.",
       logo: "https://upload.wikimedia.org/wikipedia/en/5/57/Jadavpur_University_Logo.svg",
+      logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0e/Tata_Consultancy_Services_old_logo.svg/1280px-Tata_Consultancy_Services_old_logo.svg.png?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
       highlights: ["Dean's List", "Best Final Year Project Award"],
     },
     {
@@ -108,6 +109,7 @@ export const portfolioConfig = {
         "Lead frontend architecture for a SaaS platform serving 50k+ users. Spearheaded migration from CRA to Vite, reducing build times by 70%.",
       technologies: ["React", "TypeScript", "GraphQL", "AWS", "Figma"],
       logo: "/logos/technova.png",      // ← upload public/logos/technova.png
+      logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0e/Tata_Consultancy_Services_old_logo.svg/1280px-Tata_Consultancy_Services_old_logo.svg.png?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
       achievements: [
         "Reduced bundle size by 45% through code splitting",
         "Mentored a team of 4 junior developers",
