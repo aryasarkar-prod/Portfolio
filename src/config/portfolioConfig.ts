@@ -96,7 +96,7 @@ export const portfolioConfig = {
       grade: "Percentage: 84.5%",
       description:
         "English , History & Civics , Geography, Physics, Chemistry, Mathematics & Computer Science",
-      logo: "https://claretschoolsahanagar.com/",
+      logo: "https://play-lh.googleusercontent.com/yiM1_zEqgwSxRfG1MANCpPdOHD6X0bryPMGlmOtzPBNXMl-CWAtfp9HNWn6H784mV82P=w600-h300-pc0xffffff-pd",
       highlights: ["Member and Head of the Science Club"],
     },
   ],
