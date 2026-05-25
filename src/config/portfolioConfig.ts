@@ -83,7 +83,7 @@ export const portfolioConfig = {
       grade: "Percentage: 95.2%",
       description:
         "Physics, Chemistry, Mathematics & Computer Science. School topper in Computer Science.",
-      logo: "/logos/southpoint.png", // ← upload public/logos/southpoint.png
+      logo: "https://upload.wikimedia.org/wikipedia/en/0/0b/SouthPointSchoolLogo.jpg",
       highlights: ["School Topper — CS", "State Rank 12 in JEE Mains"],
     },
   ],
