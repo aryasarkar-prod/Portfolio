@@ -174,7 +174,7 @@ export const portfolioConfig = {
       description:
         "Worked as a Frontend Developer, building responsive and scalable applications using React.js, PyQt, and PySide6. Developed modern user interfaces, integrated APIs, optimized application performance, and enhanced overall user experience. Collaborated with cross-functional teams, resolved complex debugging issues, and delivered high-quality projects within deadlines while maintaining efficient and reusable code standards.",
       technologies: ["React", "Python", "FastAPI", "PostgreSQL","PyQt","PySide6"],
-      logo: "https://commons.wikimedia.org/wiki/File:Tata_Consultancy_Services_old_logo.svg",     // ← upload public/logos/startuphub.png
+      logo: "https://ifs-p-001.sitecorecontenthub.cloud/api/public/content/new_size_948-711_ifs_tata_consultancy_services_logo_july_2022_670x300.jpg-273f76?v=676a79ee",     // ← upload public/logos/startuphub.png
       achievements: [
         "Increased application performance by 40% through frontend optimization",
         "Delivered multiple client projects within deadlines with high-quality UI standards",
