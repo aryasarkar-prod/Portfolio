@@ -25,6 +25,15 @@ export const portfolioConfig = {
   resumeUrl: "https://drive.google.com/file/d/14Ov-yhRcRxeJVfF77FnraBjgBH91nhWH/view?usp=sharing",       // Place your resume in /public/resume.pdf
   availableForWork: true,
 
+  // ── Background Music ──────────────────────────────────────
+  // Paste any direct MP3/OGG URL below, or upload to /public/music.mp3
+  // Set src to "" or remove the block to disable the music player
+  music: {
+    src:    "",                    // ← paste your song URL here (MP3 / OGG)
+    title:  "Lofi Chill Beats",   // ← song name shown in player
+    artist: "Artist Name",        // ← artist shown in player
+  },
+
   // ── Contact & Social ──────────────────────────────────────
   email: "aryasarkar60@gmail.com",
   social: {
