@@ -70,7 +70,7 @@ export const portfolioConfig = {
       grade: "SGPA: 8.95/ 10",
       description:
         "Specialized in software engineering, data structures, algorithms, and distributed systems. Active member of the coding club.",
-      logo: "https://upload.wikimedia.org/wikipedia/en/thumb/b/b1/Tata_Consultancy_Services.svg/3840px-Tata_Consultancy_Services.svg.png",
+      logo: "https://scontent-ccu2-2.xx.fbcdn.net/v/t39.30808-6/300001679_395707246021779_1468513396035306685_n.jpg?_nc_cat=105&ccb=1-7&_nc_sid=6ee11a&_nc_ohc=xDINJd_dS40Q7kNvwHofKGK&_nc_oc=Adr4QLODeII6DSf7pt6OCtCJU0dTh9FWr5PIbOKxEef4j_YNw7WhZ2S6EMNzVdbB5pU&_nc_zt=23&_nc_ht=scontent-ccu2-2.xx&_nc_gid=tVkNpp5n7KsCkXEAKKrDBQ&_nc_ss=7b2a8&oh=00_Af6VE41xHDQDY0qMxBcvu8lEDPs1QBY4n0Jlp_xCiJQCWg&oe=6A19C82A",
       highlights: ["Dean's List", "Best Final Year Project Award"],
     },
     {
