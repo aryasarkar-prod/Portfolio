@@ -270,18 +270,25 @@ const Hero: React.FC = () => {
                 </div>
               </div>{/* end inner frame */}
 
-            </div>{/* end 440px wrapper */}
+              {/* ── Dot indicators — inside container, below photo frame, above bottom pills ── */}
+              {pics.length > 1 && (
+                <div
+                  className="absolute flex gap-1.5 justify-center z-10"
+                  style={{
+                    bottom: 40,   /* 40px from bottom of 440px container = above the bottom pills */
+                    left: '50%',
+                    transform: 'translateX(-50%)',
+                  }}
+                >
+                  {pics.map((_, idx) => (
+                    <button key={idx} onClick={() => setPicIndex(idx)}
+                      className={`rounded-full transition-all duration-300 ${idx === picIndex ? 'w-5 h-2 bg-blue-500' : 'w-2 h-2 bg-gray-400 dark:bg-gray-600 hover:bg-blue-400'}`}
+                    />
+                  ))}
+                </div>
+              )}
 
-            {/* ── Dot indicators — placed BELOW the 440px wrapper so pills never overlap ── */}
-            {pics.length > 1 && (
-              <div className="flex gap-1.5 justify-center mt-4 z-10">
-                {pics.map((_, idx) => (
-                  <button key={idx} onClick={() => setPicIndex(idx)}
-                    className={`rounded-full transition-all duration-300 ${idx === picIndex ? 'w-5 h-2 bg-blue-500' : 'w-2 h-2 bg-gray-400 dark:bg-gray-600 hover:bg-blue-400'}`}
-                  />
-                ))}
-              </div>
-            )}
+            </div>{/* end 440px wrapper */}
           </motion.div>
 
         </div>{/* end flex row */}
