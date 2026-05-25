@@ -38,7 +38,7 @@ export const portfolioConfig = {
   emailjs: {
     serviceId:           "service_6x82cpj",
     templateId:          "template_iwoiky4",          // sends message to you
-    autoReplyTemplateId: "YOUR_AUTO_REPLY_TEMPLATE_ID", // ← paste your auto-reply template ID here
+    autoReplyTemplateId: "template_t4da3z3", // ← paste your auto-reply template ID here
     publicKey:           "VGQ9pI5XK4neA3_LX",
   },
 
