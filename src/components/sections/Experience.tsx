@@ -7,6 +7,52 @@ import GlassCard from '../common/GlassCard';
 import Badge from '../common/Badge';
 import { FiMapPin, FiCalendar, FiChevronDown, FiChevronUp, FiCheckCircle } from 'react-icons/fi';
 
+// ── Company logo with initials fallback ────────────────────────────────────────
+const CompanyLogo: React.FC<{ src: string; name: string }> = ({ src, name }) => {
+  const [failed, setFailed] = useState(false);
+
+  // Initials: "TechNova Solutions" → "TS"
+  const initials = name
+    .split(' ')
+    .filter(w => w.length > 1)
+    .slice(0, 2)
+    .map(w => w[0].toUpperCase())
+    .join('');
+
+  const colours = [
+    ['#dbeafe', '#2563eb'],
+    ['#ede9fe', '#7c3aed'],
+    ['#dcfce7', '#16a34a'],
+    ['#fef9c3', '#ca8a04'],
+    ['#fce7f3', '#db2777'],
+    ['#cffafe', '#0891b2'],
+    ['#ffedd5', '#ea580c'],
+  ];
+  const [bg, fg] = colours[name.charCodeAt(0) % colours.length];
+
+  if (!src || failed) {
+    return (
+      <div
+        className="w-12 h-12 rounded-xl flex items-center justify-center font-extrabold text-sm
+          select-none flex-shrink-0 border border-white/20 dark:border-white/10 shadow-sm"
+        style={{ background: bg, color: fg }}
+      >
+        {initials || name[0].toUpperCase()}
+      </div>
+    );
+  }
+
+  return (
+    <img
+      src={src}
+      alt={name}
+      onError={() => setFailed(true)}
+      className="w-12 h-12 rounded-xl object-contain flex-shrink-0
+        border border-gray-200 dark:border-white/10 shadow-sm bg-white p-1"
+    />
+  );
+};
+
 const Experience: React.FC = () => {
   const { experience } = portfolioConfig;
   const [expanded, setExpanded] = useState<number>(experience[0]?.id ?? 1);
@@ -63,19 +109,23 @@ const Experience: React.FC = () => {
                   {/* Header */}
                   <div className="p-5 cursor-pointer select-none">
                     <div className="flex items-start justify-between gap-4">
-                      <div className="flex-1 min-w-0">
-                        <div className="flex items-center gap-2 flex-wrap mb-1">
-                          <h3 className="text-lg font-bold text-gray-900 dark:text-white">{exp.role}</h3>
-                          {exp.current && (
-                            <span className="px-2 py-0.5 text-xs font-semibold rounded-full bg-green-500/10 text-green-600 dark:text-green-400 border border-green-500/20">
-                              Current
-                            </span>
-                          )}
-                        </div>
-                        <div className="flex flex-wrap items-center gap-x-4 gap-y-1 text-sm text-gray-500 dark:text-gray-400">
-                          <span className="font-semibold text-blue-600 dark:text-blue-400">{exp.company}</span>
-                          <span className="flex items-center gap-1"><FiMapPin size={12} /> {exp.location}</span>
-                          <span className="flex items-center gap-1"><FiCalendar size={12} /> {exp.startDate} — {exp.endDate}</span>
+                      {/* Logo + role/company */}
+                      <div className="flex items-start gap-3 flex-1 min-w-0">
+                        <CompanyLogo src={exp.logo} name={exp.company} />
+                        <div className="flex-1 min-w-0">
+                          <div className="flex items-center gap-2 flex-wrap mb-1">
+                            <h3 className="text-lg font-bold text-gray-900 dark:text-white">{exp.role}</h3>
+                            {exp.current && (
+                              <span className="px-2 py-0.5 text-xs font-semibold rounded-full bg-green-500/10 text-green-600 dark:text-green-400 border border-green-500/20">
+                                Current
+                              </span>
+                            )}
+                          </div>
+                          <div className="flex flex-wrap items-center gap-x-4 gap-y-1 text-sm text-gray-500 dark:text-gray-400">
+                            <span className="font-semibold text-blue-600 dark:text-blue-400">{exp.company}</span>
+                            <span className="flex items-center gap-1"><FiMapPin size={12} /> {exp.location}</span>
+                            <span className="flex items-center gap-1"><FiCalendar size={12} /> {exp.startDate} — {exp.endDate}</span>
+                          </div>
                         </div>
                       </div>
                       <button className="text-gray-400 hover:text-gray-700 dark:hover:text-white transition-colors flex-shrink-0 mt-1">
