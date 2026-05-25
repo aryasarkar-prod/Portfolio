@@ -13,12 +13,18 @@ const MusicPlayer: React.FC = () => {
   const [duration, setDuration] = useState(0);
   const [expanded, setExpanded] = useState(false);
   const [volume, setVolume]     = useState(0.5);
-  const hasSrc                  = !!(music?.src);
+  // Resolve src with Vite base URL so it works on GitHub Pages (/Portfolio/song.mp3)
+  const resolvedSrc = music?.src
+    ? music.src.startsWith('http')
+      ? music.src
+      : `${import.meta.env.BASE_URL}${music.src.replace(/^\//, '')}`
+    : '';
+  const hasSrc = !!resolvedSrc;
 
   /* Create audio element once src is known */
   useEffect(() => {
     if (!hasSrc) return;
-    const a = new Audio(music!.src);
+    const a = new Audio(resolvedSrc);
     a.volume  = volume;
     a.loop    = true;
     a.preload = 'metadata';
