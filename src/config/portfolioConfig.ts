@@ -36,9 +36,9 @@ export const portfolioConfig = {
 
   // ── EmailJS Config ────────────────────────────────────────
   emailjs: {
-    serviceId: "service_8dvsqjh",
-    templateId: "template_7ixp8yd",
-    publicKey: "CYAGIDHoYz0t_f4vq",
+    serviceId: "service_6x82cpj",
+    templateId: "template_iwoiky4",
+    publicKey: "VGQ9pI5XK4neA3_LX",
   },
 
   // ── SEO ───────────────────────────────────────────────────
