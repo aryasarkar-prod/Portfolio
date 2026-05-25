@@ -380,7 +380,7 @@ export const portfolioConfig = {
       description:
         "Completed the Generative AI Fundamentals course covering LLMs, prompt engineering, image generation, and responsible AI practices.",
       icon: "🤖",
-      image: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/01/Google_DeepMind_logo.svg/1280px-Google_DeepMind_logo.svg.png",
+      image: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Google_2015_logo.svg/1280px-Google_2015_logo.svg.png",
       date: "2024",
       link: "https://grow.google/certificates/",
     },
