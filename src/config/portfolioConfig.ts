@@ -327,6 +327,7 @@ export const portfolioConfig = {
   ],
 
   // ── Achievements ──────────────────────────────────────────
+  // image: use any direct URL (.png / .jpg / .svg) — shown inside the card
   achievements: [
     {
       id: 1,
@@ -335,18 +336,20 @@ export const portfolioConfig = {
       description:
         "Selected as a GSoC contributor for an open-source DevTools project. Implemented a real-time performance profiling dashboard.",
       icon: "🏆",
+      image: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/85/Soc2021logo.svg/1280px-Soc2021logo.svg.png",
       date: "2023",
       link: "https://summerofcode.withgoogle.com",
     },
     {
       id: 2,
-      title: "1st Place — HackBengal 2023",
-      organization: "HackBengal",
+      title: "HackerRank Certified Python Developer",
+      organization: "HackerRank",
       description:
-        "Won first place among 300+ teams building a disaster-response coordination platform with real-time resource mapping.",
-      icon: "🥇",
-      date: "2023",
-      link: "#",
+        "Earned the Python Developer certification from HackerRank, demonstrating proficiency in Python programming and problem-solving.",
+      icon: "🐍",
+      image: "https://upload.wikimedia.org/wikipedia/commons/4/40/HackerRank_Icon-1000px.png",
+      date: "2024",
+      link: "https://www.hackerrank.com/certificates",
     },
     {
       id: 3,
@@ -355,6 +358,7 @@ export const portfolioConfig = {
       description:
         "Certified in designing, deploying, and debugging cloud-based applications using AWS services.",
       icon: "☁️",
+      image: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/93/Amazon_Web_Services_Logo.svg/1280px-Amazon_Web_Services_Logo.svg.png",
       date: "2023",
       link: "https://aws.amazon.com/certification",
     },
@@ -365,18 +369,20 @@ export const portfolioConfig = {
       description:
         "Solved 600+ problems, rated in the top 5% globally. Knight badge holder.",
       icon: "⚡",
+      image: "https://upload.wikimedia.org/wikipedia/commons/1/19/LeetCode_logo_black.png",
       date: "2023",
       link: "https://leetcode.com/aryasarkar",
     },
     {
       id: 5,
-      title: "Meta Hacker Cup — Round 2",
-      organization: "Meta",
+      title: "Generative AI Fundamentals",
+      organization: "Google / Coursera",
       description:
-        "Qualified for Round 2 of Meta Hacker Cup 2022 among 20,000+ participants.",
-      icon: "🎯",
-      date: "2022",
-      link: "https://www.facebook.com/codingcompetitions/hacker-cup",
+        "Completed the Generative AI Fundamentals course covering LLMs, prompt engineering, image generation, and responsible AI practices.",
+      icon: "🤖",
+      image: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/01/Google_DeepMind_logo.svg/1280px-Google_DeepMind_logo.svg.png",
+      date: "2024",
+      link: "https://grow.google/certificates/",
     },
     {
       id: 6,
@@ -385,6 +391,7 @@ export const portfolioConfig = {
       description:
         "Maintained open-source React component library with 500+ GitHub stars and 50+ contributors worldwide.",
       icon: "⭐",
+      image: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/Octicons-mark-github.svg/1280px-Octicons-mark-github.svg.png",
       date: "2024",
       link: "https://github.com/aryasarkar-prod",
     },
