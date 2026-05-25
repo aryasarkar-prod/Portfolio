@@ -20,10 +20,40 @@ const Navbar: React.FC = () => {
   const [active, setActive]         = useState('');
   const [mobileOpen, setMobileOpen] = useState(false);
 
+  // ── Auto-highlight nav link as user scrolls ──────────────────────────────
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 50);
     window.addEventListener('scroll', onScroll);
     return () => window.removeEventListener('scroll', onScroll);
+  }, []);
+
+  useEffect(() => {
+    const sectionIds = NAV_LINKS.map(l => l.href.replace('#', ''));
+
+    const observer = new IntersectionObserver(
+      entries => {
+        // Find the entry with the largest intersection ratio that is visible
+        const visible = entries
+          .filter(e => e.isIntersecting)
+          .sort((a, b) => b.intersectionRatio - a.intersectionRatio);
+        if (visible.length > 0) {
+          setActive(`#${visible[0].target.id}`);
+        }
+      },
+      {
+        root: null,
+        // Trigger when section top crosses the mid-point of viewport
+        rootMargin: '-40% 0px -40% 0px',
+        threshold: 0,
+      }
+    );
+
+    sectionIds.forEach(id => {
+      const el = document.getElementById(id);
+      if (el) observer.observe(el);
+    });
+
+    return () => observer.disconnect();
   }, []);
 
   const handleNavClick = (href: string) => {
