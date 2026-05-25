@@ -159,7 +159,7 @@ const Hero: React.FC = () => {
               <motion.button
                 whileHover={{ scale: 1.05, boxShadow: '0 0 30px rgba(59,130,246,0.4)' }}
                 whileTap={{ scale: 0.95 }}
-                onClick={() => document.querySelector('#projects')?.scrollIntoView({ behavior: 'smooth' })}
+                onClick={() => document.querySelector('#github')?.scrollIntoView({ behavior: 'smooth' })}
                 className="px-8 py-3.5 bg-gradient-to-r from-blue-600 to-purple-600 text-white font-semibold rounded-xl shadow-lg shadow-blue-500/25 hover:from-blue-500 hover:to-purple-500 transition-all"
               >
                 View My Work
