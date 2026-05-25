@@ -12,6 +12,7 @@ export const portfolioConfig = {
     "UI/UX Enthusiast",
     "Open Source Contributor",
     "Problem Solver",
+    "AI Engineer",
   ],
   bio: "Passionate full-stack developer with a love for crafting elegant, performant web applications. I turn complex problems into simple, beautiful, and intuitive solutions.",
   location: "Kolkata, India",
@@ -28,8 +29,8 @@ export const portfolioConfig = {
   email: "aryasarkar60@gmail.com",
   social: {
     github: "https://github.com/aryasarkar-prod",
-    linkedin: "https://linkedin.com/in/aryasarkar",
-    twitter: "https://twitter.com/aryasarkar",
+    linkedin: "https://www.linkedin.com/in/arya-sarkar-319646219/",
+    facebook: "https://www.facebook.com/arya.sarkar.376",
     instagram: "https://instagram.com/aryasarkar",
   },
 
@@ -111,16 +112,16 @@ export const portfolioConfig = {
   experience: [
     {
       id: 1,
-      role: "Senior Frontend Developer",
-      company: "TechNova Solutions",
-      location: "Bangalore, India (Remote)",
-      startDate: "Jan 2024",
+      role: "Senior Consultant",
+      company: "E42 (Light Information Systems)",
+      location: "Pune,Maharshtra(Remote),India",
+      startDate: "Jan 2026",
       endDate: "Present",
       current: true,
       description:
-        "Lead frontend architecture for a SaaS platform serving 50k+ users. Spearheaded migration from CRA to Vite, reducing build times by 70%.",
-      technologies: ["React", "TypeScript", "GraphQL", "AWS", "Figma"],
-      logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0e/Tata_Consultancy_Services_old_logo.svg/1280px-Tata_Consultancy_Services_old_logo.svg.png",
+        "Led full-stack development of a SaaS platform serving 50k+ users using Django, Redis, and AWS. Optimized deployment and system performance, improving scalability and reducing build times by 70%",
+      technologies: ["React", "TypeScript", "GraphQL", "AWS", "Django","LLM","GEN-AI"],
+      logo: "https://in.linkedin.com/company/e42dotai",
       achievements: [
         "Reduced bundle size by 45% through code splitting",
         "Mentored a team of 4 junior developers",
@@ -129,16 +130,16 @@ export const portfolioConfig = {
     },
     {
       id: 2,
-      role: "Full Stack Developer",
-      company: "InnovateTech Pvt Ltd",
-      location: "Hyderabad, India",
-      startDate: "Jul 2023",
-      endDate: "Dec 2023",
+      role: "Consultant",
+      company: "Predicta Digital,
+      location: "Kolkata, India",
+      startDate: "Oct 2025",
+      endDate: "Dec 2025",
       current: false,
       description:
         "Built RESTful APIs and React dashboards for an EdTech platform with 10k+ daily active users.",
-      technologies: ["React", "Node.js", "MongoDB", "Docker", "Redis"],
-      logo: "/logos/innovatetech.png",   // ← upload public/logos/innovatetech.png
+      technologies: ["React", "Node.js", "MongoDB", "Docker", "Redis","Django","Celery"],
+      logo: "https://au.linkedin.com/company/predicta-digital",   // ← upload public/logos/innovatetech.png
       achievements: [
         "Built real-time notification system with WebSockets",
         "Improved API response time by 60%",
@@ -146,19 +147,38 @@ export const portfolioConfig = {
     },
     {
       id: 3,
-      role: "Software Engineering Intern",
-      company: "StartupHub",
+      role: "Senior Project Engineer",
+      company: "Wipro Limited",
       location: "Kolkata, India",
-      startDate: "May 2022",
-      endDate: "Jul 2022",
+      startDate: "Feb 2025",
+      endDate: "Oct 2025",
       current: false,
       description:
-        "Developed and shipped 5+ features for an e-commerce product recommendation engine.",
+        "Developed and shipped 5+ features for an banking product recommendation engine.",
       technologies: ["React", "Python", "FastAPI", "PostgreSQL"],
-      logo: "/logos/startuphub.png",     // ← upload public/logos/startuphub.png
+      logo: "https://1000logos.net/wipro-logo/",     // ← upload public/logos/startuphub.png
       achievements: [
         "Built recommendation widget used by 2k+ merchants",
         "Wrote unit & integration tests with 85% coverage",
+      ],
+    },
+
+  {
+      id: 4,
+      role: "Associate Software Engineer",
+      company: "Tata Consultancy Services Limited",
+      location: "Kolkata, India",
+      startDate: "Aug 2022",
+      endDate: "Dec 2024",
+      current: false,
+      description:
+        "Worked as a Frontend Developer, building responsive and scalable applications using React.js, PyQt, and PySide6. Developed modern user interfaces, integrated APIs, optimized application performance, and enhanced overall user experience. Collaborated with cross-functional teams, resolved complex debugging issues, and delivered high-quality projects within deadlines while maintaining efficient and reusable code standards.",
+      technologies: ["React", "Python", "FastAPI", "PostgreSQL","PyQt","PySide6"],
+      logo: "https://commons.wikimedia.org/wiki/File:Tata_Consultancy_Services_old_logo.svg",     // ← upload public/logos/startuphub.png
+      achievements: [
+        "Increased application performance by 40% through frontend optimization",
+        "Delivered multiple client projects within deadlines with high-quality UI standards",
+        "Recognized for strong problem-solving and teamwork in cross-functional projects",
       ],
     },
   ],
@@ -372,7 +392,7 @@ export const portfolioConfig = {
 
   // ── Stats (displayed in About / Hero) ─────────────────────
   stats: [
-    { label: "Years Experience", value: "2+" },
+    { label: "Years Experience", value: "3.5+" },
     { label: "Projects Shipped", value: "20+" },
     { label: "GitHub Stars", value: "500+" },
     { label: "Problems Solved", value: "600+" },
