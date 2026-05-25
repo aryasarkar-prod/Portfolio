@@ -63,7 +63,7 @@ export const portfolioConfig = {
       grade: "SGPA: 8.95/ 10",
       description:
         "Specialized in software engineering, data structures, algorithms, and distributed systems. Active member of the coding club.",
-      logo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTdnzYFt64xTz2CrRVdAbs8cvRmuJ70aGANmQ&s",
+      logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0e/Tata_Consultancy_Services_old_logo.svg/1280px-Tata_Consultancy_Services_old_logo.svg.png?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
       highlights: ["Dean's List", "Best Final Year Project Award"],
     },
     {
@@ -94,7 +94,7 @@ export const portfolioConfig = {
       description:
         "Lead frontend architecture for a SaaS platform serving 50k+ users. Spearheaded migration from CRA to Vite, reducing build times by 70%.",
       technologies: ["React", "TypeScript", "GraphQL", "AWS", "Figma"],
-      logo: "/logos/technova.png",
+      logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0e/Tata_Consultancy_Services_old_logo.svg/1280px-Tata_Consultancy_Services_old_logo.svg.png?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
       achievements: [
         "Reduced bundle size by 45% through code splitting",
         "Mentored a team of 4 junior developers",
