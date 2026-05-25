@@ -7,52 +7,62 @@ import GlassCard from '../common/GlassCard';
 import Badge from '../common/Badge';
 import { FiMapPin, FiCalendar, FiChevronDown, FiChevronUp, FiCheckCircle } from 'react-icons/fi';
 
-// ── Company logo with initials fallback ────────────────────────────────────────
-const CompanyLogo: React.FC<{ src: string; name: string }> = ({ src, name }) => {
+// ── Reusable circular logo ────────────────────────────────────────────────────
+const CircleLogo: React.FC<{ src: string; name: string; size: number }> = ({ src, name, size }) => {
   const [failed, setFailed] = useState(false);
 
-  // Initials: "TechNova Solutions" → "TS"
   const initials = name
     .split(' ')
     .filter(w => w.length > 1)
     .slice(0, 2)
     .map(w => w[0].toUpperCase())
-    .join('');
+    .join('') || name[0].toUpperCase();
 
-  const colours = [
-    ['#dbeafe', '#2563eb'],
-    ['#ede9fe', '#7c3aed'],
-    ['#dcfce7', '#16a34a'],
-    ['#fef9c3', '#ca8a04'],
-    ['#fce7f3', '#db2777'],
-    ['#cffafe', '#0891b2'],
-    ['#ffedd5', '#ea580c'],
+  const palettes = [
+    ['#dbeafe', '#1d4ed8'],
+    ['#ede9fe', '#6d28d9'],
+    ['#dcfce7', '#15803d'],
+    ['#fef9c3', '#a16207'],
+    ['#fce7f3', '#be185d'],
+    ['#cffafe', '#0e7490'],
+    ['#ffedd5', '#c2410c'],
   ];
-  const [bg, fg] = colours[name.charCodeAt(0) % colours.length];
+  const [bg, fg] = palettes[name.charCodeAt(0) % palettes.length];
+
+  const base = {
+    width: size,
+    height: size,
+    borderRadius: '50%',
+    flexShrink: 0,
+    overflow: 'hidden',
+    boxShadow: '0 2px 10px rgba(0,0,0,0.12)',
+    border: '3px solid rgba(255,255,255,0.6)',
+  } as React.CSSProperties;
 
   if (!src || failed) {
     return (
       <div
-        className="w-12 h-12 rounded-xl flex items-center justify-center font-extrabold text-sm
-          select-none flex-shrink-0 border border-white/20 dark:border-white/10 shadow-sm"
-        style={{ background: bg, color: fg }}
+        style={{ ...base, background: bg, display: 'flex', alignItems: 'center',
+          justifyContent: 'center', fontWeight: 800, color: fg, fontSize: size * 0.32 }}
       >
-        {initials || name[0].toUpperCase()}
+        {initials}
       </div>
     );
   }
 
   return (
-    <img
-      src={src}
-      alt={name}
-      onError={() => setFailed(true)}
-      className="w-12 h-12 rounded-xl object-contain flex-shrink-0
-        border border-gray-200 dark:border-white/10 shadow-sm bg-white p-1"
-    />
+    <div style={{ ...base, background: '#fff' }}>
+      <img
+        src={src}
+        alt={name}
+        onError={() => setFailed(true)}
+        style={{ width: '100%', height: '100%', objectFit: 'contain', padding: size * 0.1 }}
+      />
+    </div>
   );
 };
 
+// ── Experience ────────────────────────────────────────────────────────────────
 const Experience: React.FC = () => {
   const { experience } = portfolioConfig;
   const [expanded, setExpanded] = useState<number>(experience[0]?.id ?? 1);
@@ -84,20 +94,20 @@ const Experience: React.FC = () => {
                 transition={{ duration: 0.5, delay: index * 0.1 }}
                 className="pl-16 md:pl-20 relative"
               >
-                {/* Dot */}
-                <div className="absolute left-4 md:left-6 top-6 -translate-x-1/2">
+                {/* Timeline dot */}
+                <div className="absolute left-4 md:left-6 top-7 -translate-x-1/2">
                   <motion.div
                     initial={{ scale: 0 }}
                     whileInView={{ scale: 1 }}
                     viewport={{ once: true }}
                     transition={{ delay: index * 0.1 + 0.2 }}
-                    className={`w-5 h-5 rounded-full border-2 flex items-center justify-center ${
+                    className={`w-4 h-4 rounded-full border-2 flex items-center justify-center ${
                       exp.current
                         ? 'border-blue-500 bg-blue-500/20'
                         : 'border-gray-400 dark:border-gray-600 bg-gray-200 dark:bg-gray-800'
                     }`}
                   >
-                    {exp.current && <span className="w-2 h-2 rounded-full bg-blue-500 animate-pulse" />}
+                    {exp.current && <span className="w-1.5 h-1.5 rounded-full bg-blue-500 animate-pulse" />}
                   </motion.div>
                 </div>
 
@@ -106,41 +116,53 @@ const Experience: React.FC = () => {
                   hover={false}
                   onClick={() => setExpanded(expanded === exp.id ? -1 : exp.id)}
                 >
-                  {/* Header */}
+                  {/* ── Card header ── */}
                   <div className="p-5 cursor-pointer select-none">
-                    <div className="flex items-start justify-between gap-4">
-                      {/* Logo + role/company */}
-                      <div className="flex items-start gap-3 flex-1 min-w-0">
-                        <CompanyLogo src={exp.logo} name={exp.company} />
-                        <div className="flex-1 min-w-0">
-                          <div className="flex items-center gap-2 flex-wrap mb-1">
-                            <h3 className="text-lg font-bold text-gray-900 dark:text-white">{exp.role}</h3>
-                            {exp.current && (
-                              <span className="px-2 py-0.5 text-xs font-semibold rounded-full bg-green-500/10 text-green-600 dark:text-green-400 border border-green-500/20">
-                                Current
+                    <div className="flex items-start gap-4">
+
+                      {/* Circular company logo */}
+                      <CircleLogo src={exp.logo} name={exp.company} size={48} />
+
+                      {/* Role + meta */}
+                      <div className="flex-1 min-w-0">
+                        <div className="flex items-start justify-between gap-2">
+                          <div className="min-w-0">
+                            <div className="flex items-center gap-2 flex-wrap mb-0.5">
+                              <h3 className="text-base font-bold text-gray-900 dark:text-white">{exp.role}</h3>
+                              {exp.current && (
+                                <span className="px-2 py-0.5 text-xs font-semibold rounded-full bg-green-500/10 text-green-600 dark:text-green-400 border border-green-500/20">
+                                  Current
+                                </span>
+                              )}
+                            </div>
+                            <p className="text-sm font-semibold text-blue-600 dark:text-blue-400 mb-1">
+                              {exp.company}
+                            </p>
+                            <div className="flex flex-wrap items-center gap-x-3 gap-y-1 text-xs text-gray-500 dark:text-gray-400">
+                              <span className="flex items-center gap-1">
+                                <FiMapPin size={11} /> {exp.location}
                               </span>
-                            )}
+                              <span className="flex items-center gap-1">
+                                <FiCalendar size={11} /> {exp.startDate} — {exp.endDate}
+                              </span>
+                            </div>
                           </div>
-                          <div className="flex flex-wrap items-center gap-x-4 gap-y-1 text-sm text-gray-500 dark:text-gray-400">
-                            <span className="font-semibold text-blue-600 dark:text-blue-400">{exp.company}</span>
-                            <span className="flex items-center gap-1"><FiMapPin size={12} /> {exp.location}</span>
-                            <span className="flex items-center gap-1"><FiCalendar size={12} /> {exp.startDate} — {exp.endDate}</span>
-                          </div>
+                          <button className="text-gray-400 hover:text-gray-700 dark:hover:text-white transition-colors flex-shrink-0 mt-0.5">
+                            {expanded === exp.id ? <FiChevronUp size={18} /> : <FiChevronDown size={18} />}
+                          </button>
+                        </div>
+
+                        {/* Tech badges */}
+                        <div className="flex flex-wrap gap-1.5 mt-3">
+                          {exp.technologies.map((tech, ti) => (
+                            <Badge key={tech} label={tech} variant={badgeVariants[ti % badgeVariants.length]} />
+                          ))}
                         </div>
                       </div>
-                      <button className="text-gray-400 hover:text-gray-700 dark:hover:text-white transition-colors flex-shrink-0 mt-1">
-                        {expanded === exp.id ? <FiChevronUp size={20} /> : <FiChevronDown size={20} />}
-                      </button>
-                    </div>
-
-                    <div className="flex flex-wrap gap-2 mt-3">
-                      {exp.technologies.map((tech, ti) => (
-                        <Badge key={tech} label={tech} variant={badgeVariants[ti % badgeVariants.length]} />
-                      ))}
                     </div>
                   </div>
 
-                  {/* Expanded */}
+                  {/* ── Expanded body ── */}
                   <AnimatePresence>
                     {expanded === exp.id && (
                       <motion.div
@@ -154,7 +176,7 @@ const Experience: React.FC = () => {
                           <p className="text-gray-600 dark:text-gray-400 text-sm leading-relaxed mb-4">
                             {exp.description}
                           </p>
-                          <p className="text-xs font-semibold text-gray-500 dark:text-gray-300 uppercase tracking-wider mb-3">
+                          <p className="text-xs font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-wider mb-3">
                             Key Achievements
                           </p>
                           <div className="space-y-2">

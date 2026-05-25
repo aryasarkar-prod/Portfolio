@@ -4,56 +4,63 @@ import { portfolioConfig } from '../../config/portfolioConfig';
 import SectionWrapper from '../common/SectionWrapper';
 import SectionTitle from '../common/SectionTitle';
 import GlassCard from '../common/GlassCard';
-import { FiMapPin, FiCalendar, FiAward, FiStar } from 'react-icons/fi';
+import { FiMapPin, FiAward, FiStar } from 'react-icons/fi';
 
-// ── Logo with initials fallback ───────────────────────────────────────────────
-const InstitutionLogo: React.FC<{ src: string; name: string; size?: number }> = ({
-  src, name, size = 56,
-}) => {
+// ── Reusable circular logo ────────────────────────────────────────────────────
+const CircleLogo: React.FC<{ src: string; name: string; size: number }> = ({ src, name, size }) => {
   const [failed, setFailed] = useState(false);
 
-  // Generate initials: "Jadavpur University" → "JU"
   const initials = name
     .split(' ')
-    .filter(w => w.length > 2)          // skip "of", "in", etc.
+    .filter(w => w.length > 2)
     .slice(0, 2)
     .map(w => w[0].toUpperCase())
-    .join('');
+    .join('') || name[0].toUpperCase();
 
-  // Pick a deterministic colour from the name
-  const colours = [
-    ['#dbeafe', '#2563eb'], // blue
-    ['#ede9fe', '#7c3aed'], // purple
-    ['#dcfce7', '#16a34a'], // green
-    ['#fef9c3', '#ca8a04'], // yellow
-    ['#fce7f3', '#db2777'], // pink
-    ['#cffafe', '#0891b2'], // cyan
+  const palettes = [
+    ['#dbeafe', '#1d4ed8'],
+    ['#ede9fe', '#6d28d9'],
+    ['#dcfce7', '#15803d'],
+    ['#fef9c3', '#a16207'],
+    ['#fce7f3', '#be185d'],
+    ['#cffafe', '#0e7490'],
   ];
-  const idx = name.charCodeAt(0) % colours.length;
-  const [bg, fg] = colours[idx];
+  const [bg, fg] = palettes[name.charCodeAt(0) % palettes.length];
+
+  const base = {
+    width: size,
+    height: size,
+    borderRadius: '50%',
+    flexShrink: 0,
+    overflow: 'hidden',
+    boxShadow: '0 2px 12px rgba(0,0,0,0.15)',
+    border: '3px solid rgba(255,255,255,0.6)',
+  } as React.CSSProperties;
 
   if (!src || failed) {
     return (
       <div
-        className="rounded-2xl flex items-center justify-center font-extrabold text-sm select-none flex-shrink-0 border-2 border-white/20 dark:border-white/10 shadow-md"
-        style={{ width: size, height: size, background: bg, color: fg }}
+        style={{ ...base, background: bg, display: 'flex', alignItems: 'center',
+          justifyContent: 'center', fontWeight: 800, color: fg, fontSize: size * 0.3 }}
       >
-        {initials || name[0].toUpperCase()}
+        {initials}
       </div>
     );
   }
 
   return (
-    <img
-      src={src}
-      alt={name}
-      onError={() => setFailed(true)}
-      className="rounded-2xl object-contain border-2 border-white/20 dark:border-white/10 shadow-md bg-white p-1 flex-shrink-0"
-      style={{ width: size, height: size }}
-    />
+    <div style={{ ...base, background: '#fff' }}>
+      <img
+        src={src}
+        alt={name}
+        onError={() => setFailed(true)}
+        style={{ width: '100%', height: '100%', objectFit: 'contain', padding: size * 0.1 }}
+      />
+    </div>
   );
 };
 
+// ── Education ─────────────────────────────────────────────────────────────────
 const Education: React.FC = () => {
   const { education } = portfolioConfig;
 
@@ -76,38 +83,39 @@ const Education: React.FC = () => {
               transition={{ duration: 0.5, delay: index * 0.15 }}
             >
               <GlassCard className="p-6 md:p-8" hover>
-                <div className="flex flex-col md:flex-row gap-6 items-start">
+                <div className="flex gap-5 items-start">
 
-                  {/* Logo + year column */}
-                  <div className="flex-shrink-0 flex md:flex-col items-center gap-4 md:gap-3 md:w-24">
-                    <InstitutionLogo src={edu.logo} name={edu.institution} size={64} />
-                    {/* Year range pill */}
-                    <div className="flex md:flex-col items-center gap-1 text-center">
-                      <span className="text-sm font-bold text-blue-500 dark:text-blue-400">{edu.startYear}</span>
-                      <span className="text-gray-400 text-xs mx-1 md:mx-0">–</span>
-                      <span className="text-sm font-bold text-purple-500 dark:text-purple-400">{edu.endYear}</span>
+                  {/* ── Left column: circular logo + year ── */}
+                  <div className="flex flex-col items-center gap-2 flex-shrink-0 w-20">
+                    <CircleLogo src={edu.logo} name={edu.institution} size={64} />
+                    {/* Year range */}
+                    <div className="flex flex-col items-center leading-tight">
+                      <span className="text-xs font-bold text-blue-500 dark:text-blue-400">{edu.startYear}</span>
+                      <span className="text-gray-400 dark:text-gray-600 text-xs">—</span>
+                      <span className="text-xs font-bold text-purple-500 dark:text-purple-400">{edu.endYear}</span>
                     </div>
                   </div>
 
-                  {/* Content */}
+                  {/* ── Right: content ── */}
                   <div className="flex-1 min-w-0">
-                    <div className="flex flex-wrap items-start justify-between gap-3 mb-3">
+                    <div className="flex flex-wrap items-start justify-between gap-3 mb-2">
                       <div>
-                        <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-1">{edu.degree}</h3>
-                        <p className="text-blue-600 dark:text-blue-400 font-semibold text-base">{edu.institution}</p>
+                        <h3 className="text-lg font-bold text-gray-900 dark:text-white mb-0.5">{edu.degree}</h3>
+                        <p className="text-blue-600 dark:text-blue-400 font-semibold text-sm">{edu.institution}</p>
                       </div>
-                      <div className="flex items-center gap-2 px-3 py-1.5 rounded-xl bg-yellow-50 dark:bg-yellow-500/10 border border-yellow-200 dark:border-yellow-500/20 text-yellow-600 dark:text-yellow-400 text-sm font-semibold flex-shrink-0">
-                        <FiStar size={14} />
+                      <span className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-yellow-50 dark:bg-yellow-500/10 border border-yellow-200 dark:border-yellow-500/20 text-yellow-600 dark:text-yellow-400 text-xs font-semibold flex-shrink-0">
+                        <FiStar size={12} />
                         {edu.grade}
-                      </div>
+                      </span>
                     </div>
 
-                    <div className="flex flex-wrap gap-x-4 gap-y-1 text-sm text-gray-500 dark:text-gray-400 mb-4">
-                      <span className="flex items-center gap-1"><FiMapPin size={12} /> {edu.location}</span>
-                      <span className="flex items-center gap-1"><FiCalendar size={12} /> {edu.startYear} – {edu.endYear}</span>
+                    <div className="flex items-center gap-1.5 text-xs text-gray-500 dark:text-gray-400 mb-3">
+                      <FiMapPin size={11} /> {edu.location}
                     </div>
 
-                    <p className="text-gray-600 dark:text-gray-400 text-sm leading-relaxed mb-4">{edu.description}</p>
+                    <p className="text-gray-600 dark:text-gray-400 text-sm leading-relaxed mb-4">
+                      {edu.description}
+                    </p>
 
                     {edu.highlights.length > 0 && (
                       <div className="flex flex-wrap gap-2">
