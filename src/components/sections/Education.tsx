@@ -1,10 +1,58 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { portfolioConfig } from '../../config/portfolioConfig';
 import SectionWrapper from '../common/SectionWrapper';
 import SectionTitle from '../common/SectionTitle';
 import GlassCard from '../common/GlassCard';
 import { FiMapPin, FiCalendar, FiAward, FiStar } from 'react-icons/fi';
+
+// ── Logo with initials fallback ───────────────────────────────────────────────
+const InstitutionLogo: React.FC<{ src: string; name: string; size?: number }> = ({
+  src, name, size = 56,
+}) => {
+  const [failed, setFailed] = useState(false);
+
+  // Generate initials: "Jadavpur University" → "JU"
+  const initials = name
+    .split(' ')
+    .filter(w => w.length > 2)          // skip "of", "in", etc.
+    .slice(0, 2)
+    .map(w => w[0].toUpperCase())
+    .join('');
+
+  // Pick a deterministic colour from the name
+  const colours = [
+    ['#dbeafe', '#2563eb'], // blue
+    ['#ede9fe', '#7c3aed'], // purple
+    ['#dcfce7', '#16a34a'], // green
+    ['#fef9c3', '#ca8a04'], // yellow
+    ['#fce7f3', '#db2777'], // pink
+    ['#cffafe', '#0891b2'], // cyan
+  ];
+  const idx = name.charCodeAt(0) % colours.length;
+  const [bg, fg] = colours[idx];
+
+  if (!src || failed) {
+    return (
+      <div
+        className="rounded-2xl flex items-center justify-center font-extrabold text-sm select-none flex-shrink-0 border-2 border-white/20 dark:border-white/10 shadow-md"
+        style={{ width: size, height: size, background: bg, color: fg }}
+      >
+        {initials || name[0].toUpperCase()}
+      </div>
+    );
+  }
+
+  return (
+    <img
+      src={src}
+      alt={name}
+      onError={() => setFailed(true)}
+      className="rounded-2xl object-contain border-2 border-white/20 dark:border-white/10 shadow-md bg-white p-1 flex-shrink-0"
+      style={{ width: size, height: size }}
+    />
+  );
+};
 
 const Education: React.FC = () => {
   const { education } = portfolioConfig;
@@ -30,11 +78,13 @@ const Education: React.FC = () => {
               <GlassCard className="p-6 md:p-8" hover>
                 <div className="flex flex-col md:flex-row gap-6 items-start">
 
-                  {/* Year block */}
-                  <div className="flex-shrink-0 md:w-28 text-center">
-                    <div className="inline-flex flex-col items-center justify-center w-20 h-20 rounded-2xl bg-gradient-to-br from-blue-500/20 to-purple-500/20 border border-blue-500/20">
-                      <span className="text-lg font-extrabold text-blue-500 dark:text-blue-400">{edu.startYear}</span>
-                      <div className="w-6 h-px bg-blue-400/40 my-1" />
+                  {/* Logo + year column */}
+                  <div className="flex-shrink-0 flex md:flex-col items-center gap-4 md:gap-3 md:w-24">
+                    <InstitutionLogo src={edu.logo} name={edu.institution} size={64} />
+                    {/* Year range pill */}
+                    <div className="flex md:flex-col items-center gap-1 text-center">
+                      <span className="text-sm font-bold text-blue-500 dark:text-blue-400">{edu.startYear}</span>
+                      <span className="text-gray-400 text-xs mx-1 md:mx-0">–</span>
                       <span className="text-sm font-bold text-purple-500 dark:text-purple-400">{edu.endYear}</span>
                     </div>
                   </div>

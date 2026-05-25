@@ -52,6 +52,13 @@ export const portfolioConfig = {
   },
 
   // ── Education ─────────────────────────────────────────────
+  // ── Education ─────────────────────────────────────────
+  // HOW TO ADD LOGOS:
+  //   1. Upload your school/college logo to /public/logos/ folder on GitHub
+  //      (repo → public/logos → "Add file" → "Upload files")
+  //   2. Supported formats: .png  .jpg  .svg  .webp
+  //   3. Set the logo field below to "/logos/your-filename.png"
+  //   4. If the file is missing, coloured initials are shown automatically
   education: [
     {
       id: 1,
@@ -76,12 +83,18 @@ export const portfolioConfig = {
       grade: "Percentage: 95.2%",
       description:
         "Physics, Chemistry, Mathematics & Computer Science. School topper in Computer Science.",
-      logo: "/logos/southpoint.png",
+      logo: "/logos/southpoint.png", // ← upload public/logos/southpoint.png
       highlights: ["School Topper — CS", "State Rank 12 in JEE Mains"],
     },
   ],
 
   // ── Experience ────────────────────────────────────────────
+  // HOW TO ADD COMPANY LOGOS:
+  //   1. Upload company logo to /public/logos/ folder on GitHub
+  //      (repo → public/logos → "Add file" → "Upload files")
+  //   2. Supported formats: .png  .jpg  .svg  .webp
+  //   3. Set the logo field below to "/logos/your-company.png"
+  //   4. If the file is missing, coloured initials are shown automatically
   experience: [
     {
       id: 1,
@@ -94,7 +107,7 @@ export const portfolioConfig = {
       description:
         "Lead frontend architecture for a SaaS platform serving 50k+ users. Spearheaded migration from CRA to Vite, reducing build times by 70%.",
       technologies: ["React", "TypeScript", "GraphQL", "AWS", "Figma"],
-      logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0e/Tata_Consultancy_Services_old_logo.svg/1280px-Tata_Consultancy_Services_old_logo.svg.png?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+      logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0e/Tata_Consultancy_Services_old_logo.svg/1280px-Tata_Consultancy_Services_old_logo.svg.png",
       achievements: [
         "Reduced bundle size by 45% through code splitting",
         "Mentored a team of 4 junior developers",
@@ -112,7 +125,7 @@ export const portfolioConfig = {
       description:
         "Built RESTful APIs and React dashboards for an EdTech platform with 10k+ daily active users.",
       technologies: ["React", "Node.js", "MongoDB", "Docker", "Redis"],
-      logo: "/logos/innovatetech.png",
+      logo: "/logos/innovatetech.png",   // ← upload public/logos/innovatetech.png
       achievements: [
         "Built real-time notification system with WebSockets",
         "Improved API response time by 60%",
@@ -129,7 +142,7 @@ export const portfolioConfig = {
       description:
         "Developed and shipped 5+ features for an e-commerce product recommendation engine.",
       technologies: ["React", "Python", "FastAPI", "PostgreSQL"],
-      logo: "/logos/startuphub.png",
+      logo: "/logos/startuphub.png",     // ← upload public/logos/startuphub.png
       achievements: [
         "Built recommendation widget used by 2k+ merchants",
         "Wrote unit & integration tests with 85% coverage",
