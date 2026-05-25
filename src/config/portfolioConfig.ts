@@ -17,9 +17,9 @@ export const portfolioConfig = {
   location: "Kolkata, India",
   // Add as many photos as you want — they will cycle automatically in the Hero
   profilePictures: [
-    "/profile1.jpg",
-    "/profile2.jpg",
-    "/profile3.jpg",
+    "https://scontent-ccu2-1.xx.fbcdn.net/v/t39.30808-6/420099042_3525318994464150_5961493800280190180_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=a5f93a&_nc_ohc=Z7VDnI-mpBsQ7kNvwFT0iXd&_nc_oc=Ado5__bDPPIjSosjnDYbT2Pz5UAbgsfURrhLvhrkgvGdA3ROaPY_Vw1ulxIU27sVRGY&_nc_zt=23&_nc_ht=scontent-ccu2-1.xx&_nc_gid=WjKs0dsv6iNz_X1bDXniaA&_nc_ss=7b2a8&oh=00_Af6bgxtlhyFrj-tNizKJR5Xx2M6dQ_oao3GKTEoOjn2Qlw&oe=6A199E55",
+    "https://scontent-ccu2-1.xx.fbcdn.net/v/t39.30808-6/673577251_4244858462510196_2738507914906241060_n.jpg?_nc_cat=108&ccb=1-7&_nc_sid=833d8c&_nc_ohc=rjKZp_kgtEAQ7kNvwHz_69m&_nc_oc=AdqDN2xh7tgcg8AqRiMiyJ-ncZGaTlm5rTy5CNoPEyo9AeiiPAwgtiEcHpTEclzm3gU&_nc_zt=23&_nc_ht=scontent-ccu2-1.xx&_nc_gid=aRwTHIKKLTGteFUv24lN_Q&_nc_ss=7b2a8&oh=00_Af78pCRc2AcvtUwcGnmtYcSDHAKhz4Y-wXjqkkxsGR8FSQ&oe=6A19C3C8",
+    "https://scontent-ccu2-1.xx.fbcdn.net/v/t39.30808-6/486267158_3864850183844361_4225121318084447456_n.jpg?_nc_cat=103&ccb=1-7&_nc_sid=86c6b0&_nc_ohc=ua-pPwiCwBgQ7kNvwH_RUrU&_nc_oc=AdpqsVstCirHgeAjZ3RJsNMnu1BfRlVmCrRowOEvzk8e0t8YeZEGWLUeGIFjHG3xEKc&_nc_zt=23&_nc_ht=scontent-ccu2-1.xx&_nc_gid=x_648QbDp0BD_InfTlQK_A&_nc_ss=7b2a8&oh=00_Af41Gi0wFqEJhZpnP4qY-rlk-zQOYH0eln8q6-Q5yW4GvA&oe=6A19B94B",
   ],
   resumeUrl: "/resume.pdf",       // Place your resume in /public/resume.pdf
   availableForWork: true,
@@ -63,7 +63,7 @@ export const portfolioConfig = {
       grade: "SGPA: 8.95/ 10",
       description:
         "Specialized in software engineering, data structures, algorithms, and distributed systems. Active member of the coding club.",
-      logo: "/logo1.jpg",
+      logo: "https://scontent-ccu2-2.xx.fbcdn.net/v/t39.30808-6/300001679_395707246021779_1468513396035306685_n.jpg?_nc_cat=105&ccb=1-7&_nc_sid=6ee11a&_nc_ohc=xDINJd_dS40Q7kNvwHofKGK&_nc_oc=Adr4QLODeII6DSf7pt6OCtCJU0dTh9FWr5PIbOKxEef4j_YNw7WhZ2S6EMNzVdbB5pU&_nc_zt=23&_nc_ht=scontent-ccu2-2.xx&_nc_gid=arlHsH3yYXsoDB78XzupuA&_nc_ss=7b2a8&oh=00_Af4QhoFf0tnYgB5aciLmWkoSz_YRkeUCKCBM54QxRsOcDg&oe=6A198FEA",
       highlights: ["Dean's List", "Best Final Year Project Award"],
     },
     {
