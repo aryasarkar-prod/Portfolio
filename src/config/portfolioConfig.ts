@@ -52,6 +52,13 @@ export const portfolioConfig = {
   },
 
   // ── Education ─────────────────────────────────────────────
+  // ── Education ─────────────────────────────────────────
+  // HOW TO ADD LOGOS:
+  //   1. Upload your school/college logo to /public/logos/ folder on GitHub
+  //      (repo → public/logos → "Add file" → "Upload files")
+  //   2. Supported formats: .png  .jpg  .svg  .webp
+  //   3. Set the logo field below to "/logos/your-filename.png"
+  //   4. If the file is missing, coloured initials are shown automatically
   education: [
     {
       id: 1,
@@ -63,6 +70,7 @@ export const portfolioConfig = {
       grade: "SGPA: 8.95/ 10",
       description:
         "Specialized in software engineering, data structures, algorithms, and distributed systems. Active member of the coding club.",
+      logo: "https://upload.wikimedia.org/wikipedia/en/5/57/Jadavpur_University_Logo.svg",
       logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0e/Tata_Consultancy_Services_old_logo.svg/1280px-Tata_Consultancy_Services_old_logo.svg.png?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
       highlights: ["Dean's List", "Best Final Year Project Award"],
     },
@@ -76,12 +84,18 @@ export const portfolioConfig = {
       grade: "Percentage: 95.2%",
       description:
         "Physics, Chemistry, Mathematics & Computer Science. School topper in Computer Science.",
-      logo: "/logos/southpoint.png",
+      logo: "https://upload.wikimedia.org/wikipedia/en/0/0b/SouthPointSchoolLogo.jpg",
       highlights: ["School Topper — CS", "State Rank 12 in JEE Mains"],
     },
   ],
 
   // ── Experience ────────────────────────────────────────────
+  // HOW TO ADD COMPANY LOGOS:
+  //   1. Upload company logo to /public/logos/ folder on GitHub
+  //      (repo → public/logos → "Add file" → "Upload files")
+  //   2. Supported formats: .png  .jpg  .svg  .webp
+  //   3. Set the logo field below to "/logos/your-company.png"
+  //   4. If the file is missing, coloured initials are shown automatically
   experience: [
     {
       id: 1,
@@ -94,6 +108,7 @@ export const portfolioConfig = {
       description:
         "Lead frontend architecture for a SaaS platform serving 50k+ users. Spearheaded migration from CRA to Vite, reducing build times by 70%.",
       technologies: ["React", "TypeScript", "GraphQL", "AWS", "Figma"],
+      logo: "/logos/technova.png",      // ← upload public/logos/technova.png
       logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0e/Tata_Consultancy_Services_old_logo.svg/1280px-Tata_Consultancy_Services_old_logo.svg.png?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
       achievements: [
         "Reduced bundle size by 45% through code splitting",
@@ -112,7 +127,7 @@ export const portfolioConfig = {
       description:
         "Built RESTful APIs and React dashboards for an EdTech platform with 10k+ daily active users.",
       technologies: ["React", "Node.js", "MongoDB", "Docker", "Redis"],
-      logo: "/logos/innovatetech.png",
+      logo: "/logos/innovatetech.png",   // ← upload public/logos/innovatetech.png
       achievements: [
         "Built real-time notification system with WebSockets",
         "Improved API response time by 60%",
@@ -129,7 +144,7 @@ export const portfolioConfig = {
       description:
         "Developed and shipped 5+ features for an e-commerce product recommendation engine.",
       technologies: ["React", "Python", "FastAPI", "PostgreSQL"],
-      logo: "/logos/startuphub.png",
+      logo: "/logos/startuphub.png",     // ← upload public/logos/startuphub.png
       achievements: [
         "Built recommendation widget used by 2k+ merchants",
         "Wrote unit & integration tests with 85% coverage",
