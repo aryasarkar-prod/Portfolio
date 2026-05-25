@@ -22,7 +22,7 @@ export const portfolioConfig = {
     "https://scontent-ccu2-1.xx.fbcdn.net/v/t39.30808-6/673577251_4244858462510196_2738507914906241060_n.jpg?_nc_cat=108&ccb=1-7&_nc_sid=833d8c&_nc_ohc=rjKZp_kgtEAQ7kNvwHz_69m&_nc_oc=AdqDN2xh7tgcg8AqRiMiyJ-ncZGaTlm5rTy5CNoPEyo9AeiiPAwgtiEcHpTEclzm3gU&_nc_zt=23&_nc_ht=scontent-ccu2-1.xx&_nc_gid=aRwTHIKKLTGteFUv24lN_Q&_nc_ss=7b2a8&oh=00_Af78pCRc2AcvtUwcGnmtYcSDHAKhz4Y-wXjqkkxsGR8FSQ&oe=6A19C3C8",
     "https://scontent-ccu2-1.xx.fbcdn.net/v/t39.30808-6/486267158_3864850183844361_4225121318084447456_n.jpg?_nc_cat=103&ccb=1-7&_nc_sid=86c6b0&_nc_ohc=ua-pPwiCwBgQ7kNvwH_RUrU&_nc_oc=AdpqsVstCirHgeAjZ3RJsNMnu1BfRlVmCrRowOEvzk8e0t8YeZEGWLUeGIFjHG3xEKc&_nc_zt=23&_nc_ht=scontent-ccu2-1.xx&_nc_gid=x_648QbDp0BD_InfTlQK_A&_nc_ss=7b2a8&oh=00_Af41Gi0wFqEJhZpnP4qY-rlk-zQOYH0eln8q6-Q5yW4GvA&oe=6A19B94B",
   ],
-  resumeUrl: "/resume.pdf",       // Place your resume in /public/resume.pdf
+  resumeUrl: "https://drive.google.com/file/d/14Ov-yhRcRxeJVfF77FnraBjgBH91nhWH/view?usp=sharing",       // Place your resume in /public/resume.pdf
   availableForWork: true,
 
   // ── Contact & Social ──────────────────────────────────────
@@ -31,7 +31,7 @@ export const portfolioConfig = {
     github: "https://github.com/aryasarkar-prod",
     linkedin: "https://www.linkedin.com/in/arya-sarkar-319646219/",
     facebook: "https://www.facebook.com/arya.sarkar.376",
-    instagram: "https://instagram.com/aryasarkar",
+    instagram: "https://www.instagram.com/aruuuuuu_3000/",
   },
 
   // ── EmailJS Config ────────────────────────────────────────
